@@ -1,4 +1,4 @@
-library('rtweet')
+library(rtweet)
 library(dplyr)
 library(tidygraph)
 library(vader)
@@ -16,7 +16,7 @@ df = read.csv("TwitterAccs.csv",
 #Get information about our users
 user = lookup_users(users = df$Acc)
 
-#Get latest 200 entries from all users
+#Get latest 200 entries from all users (without retweets)
 timeline = get_timeline(user = df$Acc, n=200, check = FALSE, include_rts = FALSE)
 
 
@@ -24,24 +24,22 @@ save(timeline, file = "timelines.RData")
 
 #### Section: Data Wrangling ####
 
-#Filter out retweets
-data = timeline[timeline$is_retweet == FALSE,]
+#Filter out retweets (NO LONGER REQUIRED)
+#data = timeline[timeline$is_retweet == FALSE,]
 
+
+#Select only relevant columns and store them in csv
 data = data %>% select(created_at, screen_name, text, retweet_count)
 user = user %>% select(screen_name, followers_count)
-
 write_as_csv(storagedata, "data.csv")
 write_as_csv(storageuser, "user.csv")
 
 #### Section: Sentiment Analysis with Vader ####
 
-
-
 vaderdf = vader_df(data$text)
 
 
 #### Section: Sentiment Analysis with Syuzhet ####
-
 
 syudf = get_sentiment(data$text)
 
@@ -85,8 +83,11 @@ wordsdf %>% inner_join(get_sentiments("nrc")) -> nrcdf
 
 #Only filter out desired emotions (e.g trust/joy/anticipation)
 nrcdf %>% filter(sentiment %in% c("anger", "negative", "positive", "sadness", "disgust")) -> nrcdf2
+
+#Replace negative emotions with negative
 nrcdf2$sentiment[nrcdf2$sentiment == "anger"] = "negative"
 nrcdf2$sentiment[nrcdf2$sentiment == "disgust"] = "negative"
 nrcdf2$sentiment[nrcdf2$sentiment == "sadness"] = "negative"
 
+#Summarize (DOES NOT YET WORK)
 nrcdf3 = nrcdf2 %>% group_by(id) %>% summarize(sent = mlv(sentiment, method = 'mfv')[['M']])
