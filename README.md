@@ -1,4 +1,5 @@
 # SDS-Project-Climate-Change
 Repository for the social data science project.
 
-This file should include a short description of the various files within this Repository.
+TwitterAccs.csv     Overview of the selected Twitter Accounts
+Playaround.R        Initial code for exploring the data and trying out some stuff
