@@ -5,34 +5,41 @@ library(vader)
 library(syuzhet)
 library(tidytext)
 
-#Read our list of twitter accounts from csv
-
-df = read.csv("TwitterAccs.csv",
-                        header=TRUE, stringsAsFactors=FALSE)
-
-
 #### Section: Extract Data From Twitter ####
 
+#Read our list of twitter accounts from csv
+df = read.csv("TwitterAccs.csv",
+              header=TRUE, stringsAsFactors=FALSE)
+
 #Get information about our users
-user = lookup_users(users = df$Acc)
-
-#Get latest 200 entries from all users (without retweets)
-timeline = get_timeline(user = df$Acc, n=200, check = FALSE, include_rts = FALSE)
-
-
-save(timeline, file = "timelines.RData")
-
-#### Section: Data Wrangling ####
-
-#Filter out retweets (NO LONGER REQUIRED)
-#data = timeline[timeline$is_retweet == FALSE,]
+user_db = lookup_users(users = df$Acc)
+write_as_csv(user_db, "user_db.csv")
+user_filtered = user_db %>% select(screen_name, followers_count, protected, statuses_count) #Only select relevant columns
+write_as_csv(user_filtered, "user_filtered.csv")
 
 
-#Select only relevant columns and store them in csv
-data = data %>% select(created_at, screen_name, text, retweet_count)
-user = user %>% select(screen_name, followers_count)
-write_as_csv(storagedata, "data.csv")
-write_as_csv(storageuser, "user.csv")
+user_filtered %>% arrange(statuses_count) %>% head(20) #display users with least number of tweets
+user_filtered %>% arrange(followers_count) %>% head(20) #display users with least followers
+user_filtered %>% arrange(desc(followers_count)) %>% head(20) #display users with most followers
+user_filtered %>% group_by(protected) %>% summarise(number=n()) #Check how many users are protected/unprotected
+
+
+#Get latest 200 entries from all users, which are at least 7 days old (excluding retweets)
+timeline = get_timeline(user_db = df$Acc, n=200, check = FALSE, include_rts = FALSE)
+timeline_db = timeline %>% filter(timeline$created_at < "2021-03-02 00:00:00 UTC")
+timeline$created_at %>% head(5) #Check the dates
+timeline_db$created_at %>% head(5) #Check dates after filtering out last week
+
+write_as_csv(timeline, "timeline.csv") #10277 entries
+write_as_csv(timeline_db, "timeline_db.csv") #7922 entries
+
+#Create random samples for labeling
+
+set.seed(14) #Set seed for randomization
+rows = sample(nrow(timeline_db)) #Randomly sample rows
+timeline_filtered = timeline_db[rows, ] %>% head(200)#Reshuffle dataframe and only select 200 records for labeling
+timeline_filtered = timeline_filtered %>% select(created_at, screen_name,followers_count, retweet_count, text) #Only keep relevant columns
+write_as_csv(timeline_filtered, "timeline_filtered.csv")
 
 #### Section: Sentiment Analysis with Vader ####
 
