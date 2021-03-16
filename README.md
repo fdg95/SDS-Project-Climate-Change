@@ -10,3 +10,4 @@ Repository for the social data science project.
 - **user_db.csv** All user info extracted from Twitter
 - **user_filtered.csv** Only relevant columns of the considered users
 - **timeline_filtered.csv** 200 Randomly shuffled Tweets for labeling
+- **timeline_filtered_classified.csv** Tweets with hand labels and vader/syuzhet labels
