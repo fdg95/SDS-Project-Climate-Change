@@ -42,7 +42,7 @@ write_as_csv(timeline_db, "timeline_db.csv") #7922 entries
 set.seed(14) #Set seed for randomization
 rows = sample(nrow(timeline_db)) #Randomly sample rows
 timeline_filtered = timeline_db[rows, ] %>% head(200)#Reshuffle dataframe and only select 200 records for labeling
-timeline_filtered = timeline_filtered %>% select(created_at, screen_name,followers_count, retweet_count, text) #Only keep relevant columns
+timeline_filtered = timeline_filtered %>% select(created_at, screen_name, followers_count, retweet_count, text) #Only keep relevant columns
 write_as_csv(timeline_filtered, "timeline_filtered.csv")
 
 #### Section: Sentiment with World Libraries ####
@@ -229,6 +229,10 @@ df %>% group_by(threshold) %>% summarise(count = n())
 #Select 100 most positive and most negative tweets
 df_positive = df %>% arrange(desc(vader)) %>% head(100)
 df_negative = df %>% arrange(vader) %>% head(100)
+
+#Select only relevant columns for the dataframes that require labeling
+df_positive = df_positive %>% select(screen_name, followers_count, retweet_count, favorite_count, text, vader, threshold)
+df_negative = df_negative %>% select(screen_name, followers_count, retweet_count, favorite_count, text, vader, threshold)
 
 #Save all the dataframes
 write_as_csv(df, 'timeline_db_classified.csv')
