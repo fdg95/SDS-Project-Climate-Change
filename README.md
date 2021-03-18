@@ -3,7 +3,7 @@ Repository for the social data science project.
 
 # Files Overview
 - **TwitterAccs.csv**			Overview of the selected Twitter Accounts
-- **Playaround.R**        Initial code for exploring the data and trying out some stuff
+- **Playaround.R**        R-code
 - **Project Description.pdf** Project Description
 - **timeline.csv** All tweets extracted without any filtering from our list of accounts
 - **timeline_db.csv** All tweets extracted which are older than a week
@@ -11,3 +11,7 @@ Repository for the social data science project.
 - **user_filtered.csv** Only relevant columns of the considered users
 - **timeline_filtered.csv** 200 Randomly shuffled Tweets for labeling
 - **timeline_filtered_classified.csv** Tweets with hand labels and vader/syuzhet labels
+- **timeline_db_classified.csv** All tweets older than a week with vader classification
+- **timeline_db_positive.csv** The 100 most positive tweets from the classified tweets of timeline_db_classified.csv
+- **timeline_db_negative.csv** The 100 most negative tweets from the classified tweets of timeline_db_classified.csv
+- **vader_classification_timeline_db.csv** The actual output from the vader classification when analyzing timeline_db.csv
