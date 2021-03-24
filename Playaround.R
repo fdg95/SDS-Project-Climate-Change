@@ -5,6 +5,7 @@ library(vader)
 library(syuzhet)
 library(tidytext)
 library(tibble)
+library(stringr)
 
 #Change for your system
 setwd("C:/Users/fabia/Desktop/MSc RSC/FS 2021/SDS/Project")
@@ -204,6 +205,16 @@ write_as_csv(df, 'timeline_filtered_classified.csv')
 #Import all tweets extracted and at least 1 week old at the time
 df = read.csv("timeline_db.csv")
 
+#See what kind of Holiday tweets are removed and remove them
+holidays = df %>% filter(str_detect(text, "merry|Merry|happy birthday|Happy Birthday|happy Birthday|Holiday|New Year"))
+df = df %>% filter(!str_detect(text, "merry|Merry|happy birthday|Happy Birthday|happy Birthday|Holiday|New Year"))
+#Remove account with almost all tweets at least twice
+climatedesk = df %>% filter(str_detect(screen_name, "ClimateDesk"))
+df = df %>% filter(!str_detect(screen_name, "ClimateDesk"))
+#Check duplicate tweets and keep only unique ones
+duplicates = df[duplicated(df$text),]
+df = df %>% distinct(text, .keep_all = TRUE)
+
 #Classify tweets according to vader and add precise score to df
 #dfvader = vader_df(df$text)
 #Store vader classification (takes ~20 min to run)
@@ -234,9 +245,26 @@ df_negative = df %>% arrange(vader) %>% head(100)
 df_positive = df_positive %>% select(screen_name, followers_count, retweet_count, favorite_count, text, vader, threshold)
 df_negative = df_negative %>% select(screen_name, followers_count, retweet_count, favorite_count, text, vader, threshold)
 
+#Import classified dataframe
+df_pos = read.csv('timeline_db_positive_labeled.csv')
+df_neg = read.csv('timeline_db_negative_labeled.csv')
+
+#Select only new columns and merger columns
+df_pos = df_pos %>% select(text, Rel1, Sentiment1, Rel2, Sentiment2)
+df_neg = df_neg %>% select(text, Rel1, Sentiment1, Rel2, Sentiment2)
+
+#Merge with newly classified
+df_positive = merge(x = df_positive, y = df_pos, by = 'text', all.x = TRUE)
+df_negative = merge(x = df_negative, y = df_neg, by = 'text', all.x = TRUE)
+
 #Save all the dataframes
 write_as_csv(df, 'timeline_db_classified.csv')
 write_as_csv(df_positive, 'timeline_db_positive.csv')
 write_as_csv(df_negative, 'timeline_db_negative.csv')
+
+#### Merge Action ####
+
+
+
 
 #### Section: Graphs and Results ####

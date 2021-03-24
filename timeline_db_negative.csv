@@ -1,136 +1,43 @@
-"screen_name","followers_count","retweet_count","favorite_count","text","vader","threshold"
-"sunrisemvmt",278145,39,134,"Outrageous price gouging of utility bills right after one of Texasâ€™ worst climate disasters is a slap in the face to all Texans, and it will only accelerate rising poverty rates in the South.
+"text","screen_name","followers_count","retweet_count","favorite_count","vader","threshold","Rel1","Sentiment1","Rel2","Sentiment2"
+"'Globally, agriculture is the principal threat, but secondary threats vary by region.'
 
-@GovAbbott, cancel these utility bills *now* and resign for your failure to serve Texas https://t.co/lHEeqrrvRr",-0.964,-1
-"UNEP",1091301,75,160,"Environmental crime - such as illegal trade in wildlife -  is the 4th largest illegal activity after drug smuggling, counterfeiting and human trafficking. 
+<U+0001F53A>This isn't a 'climate' emergency, it's an economic growth emergency, a capitalism catastrophe ('there are also emerging threats, such as pollution and climate change')https://t.co/b7mbC3KrHu","ClimateBen",56386,35,63,-0.932,-1,,,,
+"'Investment market has flipped: renewables are now safe and boring, oil &amp; gas is high risk'
+https://t.co/7JlKmG8Flt  Not politics but ""Exxon own investors will be  calling them out for being very bad at their jobs, very bad at generating sustainable returns in a new environment ""","OsmundsenTerje",24778,3,11,-0.912,-1,,,,
+"""Speakers at a youth-focused press briefing hosted by @CANIntl reminded world leaders that distant plans to cut emissions &amp; a failure to address the immediate needs of the most vulnerable people do not line up with the escalating scale of the climate emergency"" https://t.co/l4yaLRhrMH","CANIntl",32551,3,5,-0.848,-1,1,-1,1,-1
+"""The disasters caused a total of $95 billion in damages and killed 262 people."" https://t.co/9Rt8imsNpM #ClimateCentral","ClimateCentral",127361,10,17,-0.9,-1,1,-1,1,-1
+"""The report shows in stark numbers how governments are failing to stop the climate crisis. With their woefully weak climate targets big emitters like Japan, Australia &amp; Brazil are weighing down overall global ambition...""  @TasneemEssop 
 
-Learn about exceptional efforts on the frontlines to stop environmental crime in Asia:  https://t.co/uJkRnLxaUN
+https://t.co/nxOGpC984B","CANIntl",32551,1,4,-0.914,-1,1,-1,1,-1
+"""There is no way that we will address the climate crisis or biodiversity loss in any sort of timely manner if the #CatholicChurch does not engage, especially with its own lands and property,â€ according to one devout cartographer: https://t.co/ZKwiFEy8tk via @NewYorker https://t.co/MhFNAKWGa0","YaleClimateComm",68310,5,13,-0.864,-1,,,,
+"""We canâ€™t rely on @BillGates or @POTUS to solve the climate crisis. The majority of peopleâ€”who will be harmed mostâ€”have to mobilise to demand a different way of organising society: based on meeting the needs of the many, rather than the greed of the few.""
 
-#ForNature https://t.co/11ivNyz7pk",-0.961,-1
-"Fridays4future",99246,8,25,"@StanChart @wef Hey, @StanChart: This is your call to phase out of fossil fuels. ""Your money kills people, fuels the climate crisis, and destroys our homes.""
+https://t.co/t6aFcQew13","ExtinctionR",358387,55,194,-0.862,-1,,,,
+"#Climate and economic risks 'threaten 2008-style systemic collapse' - environmental and social problems could interact in global breakdown, report says.  https://t.co/MfdrizKGyJ","ClimateChangeUS",18191,2,1,-0.862,-1,1,-1,1,-1
+"#EUMercosur is a crooked deal that stands for more pesticides, Amazon destruction and human rights abuse! It's a risk for the EU and for Latin Americas local markets and peoples wellbeing @vonderleyen stop supporting ecocide and #SayNoEUMercosur!","Fridays4future",99246,332,1043,-0.847,-1,,,,
+"... and we are not doing enough. The climate crisis is not a scientific debate, itâ€™s a political one (refer to Oreske). And the most vulnerable feel the impacts first. To that list, add youth who are having to deal with climate anxiety and climate grief","xiyebastida",17397,15,149,-0.88,-1,,,,
+".@KHayhoe &amp; @cohan_ds op-ed: Texasâ€™ energy systems were woefully unprepared for this kind of freeze. And instead of acknowledging our lack of preparation and the disastrous failure of gas systems, many state leaders scapegoated wind power. https://t.co/l4RTvAJzhr via @statesman","ClimateNexus",28732,30,67,-0.88,-1,,,,
+".@TheDemocratsâ€™ decision to sabotage a #ClimateDebate is extremely disappointing. Voters all over the U.S. are demanding we focus on the biggest threat to our nation and humanityâ€™s future and prioritize solving the climate crisis instead of continuing business as usual.","algore",3057070,1576,6206,-0.931,-1,,,,
+"@aaronhuertas Cash 4 Clunkers, but an EV one of these bad boys crushes all the internal combustion vehicles https://t.co/gEX4rZCKMR","KateAronoff",77756,0,20,-0.862,-1,0,,0,
+"@climateethics OK but it's system failure, not just policy failure. Ecosystems are collapsing due to habitat destruction, industrial agriculture, etc, etc, not just abrupt climate change. Big business is the killer.","ClimateBen",56386,0,2,-0.94,-1,1,-1,1,-1
+"@panny_antoniou the rates of abuse within psychiatric wards, particularly in child and adolescences psychiatric wards, is absolutely terrifying and itâ€™s even scarier that the abusers get away with it because of the power they have as â€˜caregiversâ€™","ScarlettOWest",5074,0,1,-0.915,-1,,,,
+"@StanChart @LFC Hey, @StanChart: This is your call to phase out of fossil fuels. ""Your money kills people, fuels the climate crisis, and destroys our homes.""
 
 It's time to stop funding our destruction! It's time to #RaiseYourStandards!
-https://t.co/le7RixTi4i",-0.956,-1
-"Fridays4future",99246,13,48,"@StanChart @LFC Hey, @StanChart: This is your call to phase out of fossil fuels. ""Your money kills people, fuels the climate crisis, and destroys our homes.""
+https://t.co/le7RiyaTsS","Fridays4future",99246,13,48,-0.956,-1,1,-1,1,-1
+"@StanChart @wef Hey, @StanChart: This is your call to phase out of fossil fuels. ""Your money kills people, fuels the climate crisis, and destroys our homes.""
 
 It's time to stop funding our destruction! It's time to #RaiseYourStandards!
-https://t.co/le7RiyaTsS",-0.956,-1
-"greenpeaceusa",210504,85,195,"Today is #WorldDayofSocialJustice! <U+270A><U+0001F3FB><U+270A><U+0001F3FC><U+270A><U+0001F3FD><U+270A><U+0001F3FF>
-
-But thereâ€™s no social justice without environmental justice. We must hold the fossil fuel industry accountable for the #ClimateCrisis that is making poverty and inequality worse.
-
-Itâ€™s time for a #FossilFreeRevolution! https://t.co/E9yozqsyR3",-0.955,-1
-"greenpeaceusa",210504,18,20,"The tar spill in the Mediterranean is not an accident, but an environmental crime perpetrated by people.
- 
-Such a crime underscores the danger of toxic fuels and how foolish it is to rely on them. Itâ€™s time for a #FossilFreeRevolution.
- 
-<U+0001F4F8>: Elad Aybes https://t.co/e0mxPHC97Y",-0.951,-1
-"algore",3057070,147,715,"Today, we commemorate the end of slavery &amp; celebrate Black freedom. Yet, the fight for equality and justice continues in the face of systemic racism, police brutality, ecological devastation and the climate crisis. There can be no climate justice without racial justice. 1/2",-0.949,-1
-"ScarlettOWest",5074,5,34,"state violence shouldnâ€™t have to be the answer to people trying to stay alive. the amount of abuse that occurs within mental health services is beyond ridiculous and itâ€™s scary to think of how many people leave them being even more traumatised",-0.946,-1
-"YaleClimateComm",68310,17,28,"A new study has found that 8.7 million people around the world die each year from breathing air polluted by the burning of fossil fuels. Tiny particles lodge in the lungs and cause ailments from asthma to cancer, strokes, and early death: https://t.co/xz2xUBDKY0 via @guardian https://t.co/VVXbHbVUov",-0.945,-1
-"ClimateReality",548045,16,30,"Environmental racism, classism, and injustice is happening right now in Memphis. 
-
-The @ByhaliaPipeline in Memphis, TN is threatening the predominantly Black cityâ€™s drinking water for their crude oil pipeline. Tell @MEM_Council to Oppose the @ByhaliaPipeline w/ @MemphisCAP_org",-0.942,-1
-"ClimateBen",56386,0,2,"@climateethics OK but it's system failure, not just policy failure. Ecosystems are collapsing due to habitat destruction, industrial agriculture, etc, etc, not just abrupt climate change. Big business is the killer.",-0.94,-1
-"insideclimate",132424,8,10,"The Keystone XL pipeline may be dead, but Alberta's government is still fighting for its oil sands industry. It has published a series of conspiracy theory-laced reports attacking environmental advocates in the process.
-
-https://t.co/2EvYhy5ICp",-0.938,-1
-"OsmundsenTerje",24778,1,5,"Morocco gets 2 million AstraZeneca vaccine doses, first big shipment to Africa https://t.co/74HCRAcw21 
-Africa has the highest COVID 19 death fatality rate(2,5%) but so far no vaccination program.
-A ""moral disaster"" says WHO chief Ghebreyesus",-0.933,-1
-"ClimateBen",56386,35,63,"'Globally, agriculture is the principal threat, but secondary threats vary by region.'
-
-<U+0001F53A>This isn't a 'climate' emergency, it's an economic growth emergency, a capitalism catastrophe ('there are also emerging threats, such as pollution and climate change')https://t.co/b7mbC3KrHu",-0.932,-1
-"algore",3057070,1143,2310,"Among the risks of the climate crisis is a normalization of its horrific and deadly consequences. The bushfires in Australia represent a startling climate catastrophe unfolding before us. Important piece from <U+2066>@dwallacewells<U+2069>.  https://t.co/LIvXYbxhPp",-0.931,-1
-"algore",3057070,1576,6206,".@TheDemocratsâ€™ decision to sabotage a #ClimateDebate is extremely disappointing. Voters all over the U.S. are demanding we focus on the biggest threat to our nation and humanityâ€™s future and prioritize solving the climate crisis instead of continuing business as usual.",-0.931,-1
-"GermanEnvAgency",1470,4,4,"Prof. Erik Gawel &amp; Prof. @pleh_mann (@UFZ_de @UniLeipzig): ""Killing two birds with one stone? Green dead ends and ways out of the #coronavirus crisis"". 'Corona Sustainability Compass', the #science blog by @FutureEarth @ISC @Stiftung2Grad &amp; UBA. Read now: https://t.co/5k8YGxqgvA",-0.93,-1
-"ClimateChangeUS",18191,3,4,"Rising temperatures, drought &amp; weather disasters - all results of #climate change - can threaten peopleâ€™s health. And children are often hurt the worst. https://t.co/Wm401RIpqH",-0.929,-1
-"Planetary_Sec",115383,260,396,"<U+0001F1EE><U+0001F1F3> 
+https://t.co/le7RixTi4i","Fridays4future",99246,8,25,-0.956,-1,1,-1,1,-1
+"@very_onlinee @shoe0nhead i think itâ€™s quite concerning that you misrepresented the account of an activist of colour who wrote about her experiences of being pushed out of a movement because of racism. the title is click baity, but the actual article is about racial trauma which youâ€™ve just undermined","ScarlettOWest",5074,2,12,-0.859,-1,,,,
+"<U+0001F1EE><U+0001F1F3> 
 
 Sad to learn about the #Uttarakhand glacier bust. At least 150 people are feared dead after the massive flood of water and debris crashed into 2 dams. 
 This is a shocking video clip. 
 
 #UttarakhandDisaster #India 
- https://t.co/JvMwGxfOaX",-0.923,-1
-"Fridays4future",99246,78,159,"Biodiversity is dying in Amazon Fires, indigenous being murdered. #EUMercosur deal would increase death of millions of endangered species. Bolsonaro called NGOs and indigenous in public â€œa cancer he couldn't kill yetâ€œ @vonderleyen Stop this crime and  #SayNoEUMercosur ! https://t.co/KV2QiwDFkW",-0.918,-1
-"ClimateBen",56386,39,58,"1. Scientists fear the collapse of Thwaites Glacier has already begun. Emissions must be stopped by ~2030! <U+26A0><U+FE0F>
-https://t.co/YUs7IPf8w8
-
-2. 'devastating sea level rise within mere decades'
-https://t.co/BtwXGozIDC
-
-3. Threads on sea level rise impacts by 2035:https://t.co/L9Xttf0UWC",-0.917,-1
-"ScarlettOWest",5074,0,1,"@panny_antoniou the rates of abuse within psychiatric wards, particularly in child and adolescences psychiatric wards, is absolutely terrifying and itâ€™s even scarier that the abusers get away with it because of the power they have as â€˜caregiversâ€™",-0.915,-1
-"YaleE360",132499,17,14,"Saffron finches are being snatched out of forests and sold in Brazil for use in brutal, illegal fighting rings. Lax wildlife laws have made it difficult for authorities to crack down on the lucrative trade, leaving traffickers and ring runners undeterred. https://t.co/aHHF92g0lp",-0.914,-1
-"ClimateNexus",28732,1,2,"Years of bad investments made fossil fuel companies susceptible to crisis, and when the pandemic came, states were left holding the bag. As we recover from the COVID19 crisis, we must chose #PeopleNotPolluters. https://t.co/8cFiIJun4R",-0.914,-1
-"CANIntl",32551,1,4,"""The report shows in stark numbers how governments are failing to stop the climate crisis. With their woefully weak climate targets big emitters like Japan, Australia &amp; Brazil are weighing down overall global ambition...""  @TasneemEssop 
-
-https://t.co/nxOGpC984B",-0.914,-1
-"Greenpeace",1896493,91,247,"Healthy oceans need sharks! 
-But sharks are under threat - killed for their fins and caught by destructive fishing. These amazing creatures need our protection. #ProtectTheOceans &gt;&gt; https://t.co/41DukbW6bL https://t.co/93AohRKCH3",-0.912,-1
-"OsmundsenTerje",24778,3,11,"'Investment market has flipped: renewables are now safe and boring, oil &amp; gas is high risk'
-https://t.co/7JlKmG8Flt  Not politics but ""Exxon own investors will be  calling them out for being very bad at their jobs, very bad at generating sustainable returns in a new environment """,-0.912,-1
-"YaleE360",132499,31,49,"Caribou are highly sensitive to oil extraction activity. Conservation groups worry that such activity could drive caribou to abandon the Arcticâ€™s Area 1002 altogether, leading to the loss of access to critical nourishment and a population collapse.
-https://t.co/2WlsEI9Z39",-0.912,-1
-"YaleE360",132499,15,12,"â€œCultural tradition, flawed regulation, and the fragmented nature of [saffron finch fighting rings] have made it difficult for authorities to shut it down and punish the perpetrators, leaving traffickers and ring runners undeterred,â€ states @JillLanglois.
-https://t.co/aHHF92xBJZ",-0.91,-1
-"sunrisemvmt",278145,69,192,"Gov. Abbot needs to resign, not just for his failure to prepare Texas for climate change, but for his misinformation from the start of the crisis. Join us in calling for his resignation.
-
-https://t.co/Svu0rI73pU",-0.909,-1
-"JoyceMsuya",21141,48,94,"If global heating continues unchecked, it could have a devastating impact on the planet, causing food shortages, raising sea levels and sparking extreme weather.
-
-Here is roadmap for six sectors key to avoiding the worst of these effects.
-#ClimateAction https://t.co/QBjCtbvtBS",-0.908,-1
-"insideclimate",132424,4,7,"During the first week of February, avalanches killed 14 people across the United States, the highest weekly avalanche death toll in more than 100 years. Researchers worry that climate change could be increasing avalanche threats in some regions.
-
-https://t.co/w1r7j9iQMb",-0.906,-1
-"WeDontHaveTime",85675,7,31,"Sad news from Sweden this week. Nine people have drowned because of weak sea Ice. 
-
-Winter weather is crazy.
-
-#WeDontHaveTime",-0.906,-1
-"ClimateChangeUS",18191,2,3,"Los Angeles fire chief Daryl Osby says #climate change is undeniably a part of making wildfires in northern and southern California more devastating and destructive than in years past. https://t.co/UnBcDGIbgn",-0.905,-1
-"YaleClimateComm",68310,5,11,"Former directors of @CDCEnvironment are calling for a ""National Institute of Climate Change and Health."" @nytimes columnist Jane Brody shares their warning that ""our failure to take climate change seriously is resulting in needless suffering and death"": https://t.co/BKX9zfMvye",-0.904,-1
-"AlexandriaV2005",56334,163,1126,"I remember when Rush Limbaugh said he hated me and all the ""stupid kids"" striking for a better world. He said we were the victims of ""leftist climate change child abuse"".
-
-I was 13.",-0.904,-1
-"ClimateCentral",127361,10,17,"""The disasters caused a total of $95 billion in damages and killed 262 people."" https://t.co/9Rt8imsNpM #ClimateCentral",-0.9,-1
-"sunrisemvmt",278145,54,226,"That vision? That's the Green New Deal.
-
-We've seen a lot of ""once in a century"" events recently. Floods. Hurricanes. Fires.
-
-But as climate change continues to worsen, they're no longer ""hundred-year"" events. They're happening every year, each worse than the last.",-0.898,-1
-"ClimateNexus",28732,0,3,"Neighborhoods across Texas went cold and dark for days as the state struggled to keep the power on during a dangerous winter storm. But while the catastrophe was shared by millions, the suffering was not equally spread. https://t.co/mvswYR2vQJ via @TexasTribune",-0.898,-1
-"ClimateReality",548045,10,23,"Environmental injustice links the economic recession, systemic oppression, #COVID19, and the #ClimateCrisis. Join us TODAY at 3 PM ET for the #TimeToAct rally to demand our leaders #ActOnClimate and address injustice at this critical moment. RSVP: https://t.co/4ew0hvledm https://t.co/VjKrIPOXZR",-0.896,-1
-"ClimateDesk",159824,2,5,"In his new book, 'A Good War: Mobilizing Canada for the Climate Emergency,' Seth Klein imparts an unflinching warning about where this country stands in the fight to curb catastrophic climate change, and offers a plan for the path ahead. https://t.co/OFTMpG4OFO",-0.896,-1
-"ClimateDesk",159824,1,6,"In his new book, 'A Good War: Mobilizing Canada for the Climate Emergency,' Seth Klein imparts an unflinching warning about where this country stands in the fight to curb catastrophic climate change, and offers a plan for the path ahead. https://t.co/OFTMpFNdhe",-0.896,-1
-"Farah_mkma",1673,191,1545,"school protest for climate week 43
-#climatestrikeonline #ClimateAction #ClimateEmergency   <U+0627><U+0644><U+0639><U+062F><U+0627><U+0644><U+0629> <U+0644><U+0644><U+0645><U+0646><U+0627><U+062E><U+2728>
-<U+0001F30D>its disgusting how the climate crisis is being treated. it seriously doesn't make sense. you too will be affected!!<U+0001F30F> https://t.co/6HSvy6xqDR",-0.895,-1
-"World_Wildlife",1480167,140,220,"Ghost fishing gear is the deadliest form of marine plastic. From entangling wildlife to damaging marine environments, it wreaks havoc on our seas. This has to stop. Learn more and take action to #StopGhostGear. https://t.co/8d5NPkW1TR",-0.893,-1
-"algore",3057070,499,1023,"Without urgent action now, we may be barreling toward what was previously considered the worst case scenario for global warming. This alarming study sheds new light on how grave a danger our planet is in. https://t.co/6ayBVm1Lf0",-0.891,-1
-"algore",3057070,389,1196,"The same destructive forces that deny the established science of the climate crisis are denying the truth about the toll of the coronavirus. Itâ€™s the same playbook and itâ€™s cancerous for our democracy. https://t.co/Xv1wHvZOyQ",-0.891,-1
-"algore",3057070,233,625,"Our climate is in crisis. Our democracy is in crisis. Justice is in crisis. Our health is in crisis. Join me July 18-26 for the first virtual @ClimateReality Leadership Corps Global Training and become part of the solution. #LeadOnClimate Register now: https://t.co/zjZPg87xpX https://t.co/eARdJmkYMq",-0.889,-1
-"AlexandriaV2005",56334,5,72,"Wall Street: We scared of a little discord and subreddit, must shut them down and keep poor people poor.
-
-Tik Tok: hi
-
-#wallstreetbets",-0.889,-1
-"ClimateBen",56386,28,66,"Habitat destruction, chemical/plastic/light/noise pollution, etc not just CC are key causes of species declines/extinctions &amp; ecosystem damage. Deforestation must be stopped immediately.
-
-CC is now combining with these to further threaten biodiversity. 
-https://t.co/bLCSdnNAHp",-0.886,-1
-"insideclimate",132424,5,6,"California vineyards are already suffering from outbreaks of Pierceâ€™s disease, a bacterial infection carried by an invasive insect. But as the state faces more mild winters ahead, scientists worry the diseaseâ€™s impact will worsen.
-
-https://t.co/cP1TXlY8Zr",-0.885,-1
-"oof",9668,0,6,"Hey all you second amendment assholes. Remember how you justified having killing machines in your houses because you needed to stand up to a government of jack booted thugs who showed up without insignia, to whisk people off the streets? 
-
-Where the fuck are you now?",-0.885,-1
-"sunrisemvmt",278145,48,188,"What if our government worked as hard as we do to take care of our communities in a crisis?
-
-Imagine a well-paid civilian corps of climate crisis responders, showing up to help us out when disaster strikes.",-0.883,-1
-"YaleClimateComm",68310,11,20,"â€œYoung people often experience more fear, sadness and anger regarding climate change than their older counterparts, as well as an increased sense of helplessness or hopelessnessâ€: https://t.co/cD21yJWSej via @latimes https://t.co/NZHROBYK5f",-0.883,-1
-"Planetary_Sec",115383,36,83,"<U+0001F30D> 
+ https://t.co/JvMwGxfOaX","Planetary_Sec",115383,260,396,-0.923,-1,1,-1,1,-1
+"<U+0001F30D> 
 
 â€œA 2C hotter world is a death sentence for countries like mine
 
@@ -138,81 +45,107 @@ Climate crisis is not a PR opportunity for governments, but a real threat.
 
 Developing countries need funding now to help them cut emissions, before the point of no returnâ€.
 
-@vanessa_vash in The Independent https://t.co/9aAh9xIAtx",-0.882,-1
-"xiyebastida",17397,15,149,"... and we are not doing enough. The climate crisis is not a scientific debate, itâ€™s a political one (refer to Oreske). And the most vulnerable feel the impacts first. To that list, add youth who are having to deal with climate anxiety and climate grief",-0.88,-1
-"ClimateNexus",28732,30,67,".@KHayhoe &amp; @cohan_ds op-ed: Texasâ€™ energy systems were woefully unprepared for this kind of freeze. And instead of acknowledging our lack of preparation and the disastrous failure of gas systems, many state leaders scapegoated wind power. https://t.co/l4RTvAJzhr via @statesman",-0.88,-1
-"ClimateEnvoy",119877,141,579,"At @MunSecConf, @POTUS said: ""We can no longer delay or do the bare minimum to address climate change. This is a global existential crisis, and weâ€™ll all suffer the consequences if we fail."" Our message to the world is clear: America is back in this fight. https://t.co/EKq2loRXYj",-0.879,-1
-"ClimateChangeUS",18191,5,6,"Time to panic, one writer argues: The planet is getting warmer in catastrophic ways. And fear may be the only thing that saves us. #climate https://t.co/c18JCymlTw",-0.878,-1
-"Fridays4future",99246,484,1498,"BREAKING: @StanChart censors our tweets! Today, we've started to expose your dirty investments in coal, oil &amp; gas all around the world. Now you're deleting facts &amp; blocking us
+@vanessa_vash in The Independent https://t.co/9aAh9xIAtx","Planetary_Sec",115383,36,83,-0.882,-1,,,,
+"<U+0001F5E3> â€œEarly action on methane emissions will be critical for avoiding the worst effects of climate change. There has never been a greater sense of urgency about this issue than there is today.""
+
+@fbirol launching our Methane Tracker and Regulatory Roadmap: https://t.co/D1HPVQh3NG https://t.co/QQaRefLEwi","IEA",197182,15,20,-0.872,-1,,,,
+"1. Scientists fear the collapse of Thwaites Glacier has already begun. Emissions must be stopped by ~2030! <U+26A0><U+FE0F>
+https://t.co/YUs7IPf8w8
+
+2. 'devastating sea level rise within mere decades'
+https://t.co/BtwXGozIDC
+
+3. Threads on sea level rise impacts by 2035:https://t.co/L9Xttf0UWC","ClimateBen",56386,39,58,-0.917,-1,1,-1,1,-1
+"25 November is the International Day to End Violence against Women &amp; the <U+0001F30E> is turning orange <U+0001F9E1> to show that #GenerationEquality stands against gender-based violence. 
+
+Letâ€™s kick off the #16Days of Activism with @UN_Women &amp; #orangetheworld. 
+
+https://t.co/FLwUBTZUfx","UNEP_Europe",23082,17,45,-0.848,-1,,,,
+"A new study has found that 8.7 million people around the world die each year from breathing air polluted by the burning of fossil fuels. Tiny particles lodge in the lungs and cause ailments from asthma to cancer, strokes, and early death: https://t.co/xz2xUBDKY0 via @guardian https://t.co/VVXbHbVUov","YaleClimateComm",68310,17,28,-0.945,-1,1,-1,1,-1
+"â€œCultural tradition, flawed regulation, and the fragmented nature of [saffron finch fighting rings] have made it difficult for authorities to shut it down and punish the perpetrators, leaving traffickers and ring runners undeterred,â€ states @JillLanglois.
+https://t.co/aHHF92xBJZ","YaleE360",132499,15,12,-0.91,-1,,,,
+"â€œYoung people often experience more fear, sadness and anger regarding climate change than their older counterparts, as well as an increased sense of helplessness or hopelessnessâ€: https://t.co/cD21yJWSej via @latimes https://t.co/NZHROBYK5f","YaleClimateComm",68310,11,20,-0.883,-1,,,,
+"also thinking about the teachers and school staff who will have to experience their risk of getting the virus rise exponentially. nobody has the option to shield - cyp will get fined if we try and school staff will get fired. this is going to be disastrous for so many","ScarlettOWest",5074,4,18,-0.862,-1,0,,0,
+"Among the risks of the climate crisis is a normalization of its horrific and deadly consequences. The bushfires in Australia represent a startling climate catastrophe unfolding before us. Important piece from <U+2066>@dwallacewells<U+2069>.  https://t.co/LIvXYbxhPp","algore",3057070,1143,2310,-0.931,-1,1,-1,1,-1
+"As #HurricaneLaura overwhelms the Gulf Coast, it's now painfully clear how supercharged these storms are by rising global temps. At the same time, we are fighting multiple interconnected crises - the pandemic, systemic racism &amp; voter suppression among them. 2/4","algore",3057070,56,365,-0.848,-1,1,-1,1,-1
+"Astonishing!
+May be the biggest achievement of this century so far!
+Chinese <U+0001F1E8><U+0001F1F3> President Xi Jinping announced this week that China has scored a â€œcomplete victoryâ€ in its fight against extreme poverty. In 1980 China was poorer than Africa.
+
+ https://t.co/0QK95Gs2uX","ErikSolheim",145787,160,695,-0.851,-1,,,,
+"At @MunSecConf, @POTUS said: ""We can no longer delay or do the bare minimum to address climate change. This is a global existential crisis, and weâ€™ll all suffer the consequences if we fail."" Our message to the world is clear: America is back in this fight. https://t.co/EKq2loRXYj","ClimateEnvoy",119877,141,579,-0.879,-1,,,,
+"Barely 5% of the 5,000 tons of plastic that Ghanaians discard each day makes it to recycling facilities. The rest winds up in landfills, illegal dumps, streets, and waterways, or is burned in open pits, poisoning the air. Plastic roads present a solution.
+https://t.co/XZ9R4maid8","YaleE360",132499,7,23,-0.869,-1,1,-1,1,-1
+"Biodiversity is dying in Amazon Fires, indigenous being murdered. #EUMercosur deal would increase death of millions of endangered species. Bolsonaro called NGOs and indigenous in public â€œa cancer he couldn't kill yetâ€œ @vonderleyen Stop this crime and  #SayNoEUMercosur ! https://t.co/KV2QiwDFkW","Fridays4future",99246,78,159,-0.918,-1,,,,
+"BREAKING: @StanChart censors our tweets! Today, we've started to expose your dirty investments in coal, oil &amp; gas all around the world. Now you're deleting facts &amp; blocking us
 
 Are you afraid of a bunch of kids exposing your coal investments? 
 
-It's time to #RaiseYourStandards! https://t.co/PJFQHrCGHw",-0.875,-1
-"ClimateReality",548045,21,46,"Racist redlining policies have pushed many communities of color â€“ particularly Black communities â€“ into urban heat islands. During heat waves, that means people of color could face a higher risk of death. 
-https://t.co/G7KZimE9qL",-0.875,-1
-"ClimateChangeUS",18191,2,2,"Human existence is threatened more by #climate change-driven extreme weather than by weapons of mass destruction, report warns https://t.co/sBjLLuhkXD",-0.875,-1
-"World_Wildlife",1480167,52,138,"The future of all living things depends on thriving forests. And yet, theyâ€™re being destroyed at an alarming rate. Forest loss threatens nature and human health and exacerbates the climate crisis. Learn more and see what you can do to help: https://t.co/lAKOJ4nhRi https://t.co/8zus8W29Ie",-0.875,-1
-"sunrisemvmt",278145,185,665,"Denial of reality seems to be second nature for Republican politicians, but blaming a privatized energy grid's failure on the Green New Deal in a state where no Green New Deal policies have been implemented is absolutely wild.",-0.872,-1
-"ClimateReality",548045,21,53,"Research shows that diesel school buses hurt studentsâ€™ health and could put them at risk of developing cancer. 
+It's time to #RaiseYourStandards! https://t.co/PJFQHrCGHw","Fridays4future",99246,484,1498,-0.875,-1,1,-1,1,-1
+"Burning oil and coal makes us poorer (oh, and also makes the collapse of organised society and mass human death more likely and imminent) https://t.co/RbFMFDSxhh","ExtinctionR",358387,18,69,-0.862,-1,1,-1,1,-1
+"California vineyards are already suffering from outbreaks of Pierceâ€™s disease, a bacterial infection carried by an invasive insect. But as the state faces more mild winters ahead, scientists worry the diseaseâ€™s impact will worsen.
 
-So one school district took action. https://t.co/bNybDrX7WM",-0.872,-1
-"ClimateBen",56386,28,42,"Scientists:
+https://t.co/cP1TXlY8Zr","insideclimate",132424,5,6,-0.885,-1,,,,
+"Caribou are highly sensitive to oil extraction activity. Conservation groups worry that such activity could drive caribou to abandon the Arcticâ€™s Area 1002 altogether, leading to the loss of access to critical nourishment and a population collapse.
+https://t.co/2WlsEI9Z39","YaleE360",132499,31,49,-0.912,-1,,,,
+"Corporate activities and supply chains too often lead to
+<U+0001F534>Human rights abuses
+<U+0001F534>Labour exploitation and forced labour
+<U+0001F534>Environmental destruction
+You can help change that! Click by 8 Feb and demand that the EU holds business accountable
 
-""ecosystems are in varying states of collapse from the tropics to Antarctica.""
+#ClimateOfChange
+https://t.co/PsAsDxA2vi","Green_Europe",32632,2,13,-0.855,-1,1,-1,1,-1
+"Denial of reality seems to be second nature for Republican politicians, but blaming a privatized energy grid's failure on the Green New Deal in a state where no Green New Deal policies have been implemented is absolutely wild.","sunrisemvmt",278145,185,665,-0.872,-1,1,-1,1,-1
+"During the first week of February, avalanches killed 14 people across the United States, the highest weekly avalanche death toll in more than 100 years. Researchers worry that climate change could be increasing avalanche threats in some regions.
 
-https://t.co/4GXCWbQHqR
+https://t.co/w1r7j9iQMb","insideclimate",132424,4,7,-0.906,-1,1,-1,1,-1
+"Environmental crime - such as illegal trade in wildlife -  is the 4th largest illegal activity after drug smuggling, counterfeiting and human trafficking. 
 
-'in the near future, even apparently resilient ecosystems are likely to suffer collapse as the intensity and frequency of pressures increase.' https://t.co/0K4QEwjXH3",-0.872,-1
-"ClimateChangeUS",18191,1,3,"In the past 20 years, 77 percent of disaster losses were caused by #extremeweather - and #climate change is making things worse.  https://t.co/MRzFTafHzf",-0.872,-1
-"greenpeaceusa",210504,7,11,"Hereâ€™s what EVERYONE needs to know: Texas' fossil fuel infrastructure is failing, and failing spectacularly, right now.
+Learn about exceptional efforts on the frontlines to stop environmental crime in Asia:  https://t.co/uJkRnLxaUN
+
+#ForNature https://t.co/11ivNyz7pk","UNEP",1091301,75,160,-0.961,-1,1,-1,1,0
+"Environmental injustice links the economic recession, systemic oppression, #COVID19, and the #ClimateCrisis. Join us TODAY at 3 PM ET for the #TimeToAct rally to demand our leaders #ActOnClimate and address injustice at this critical moment. RSVP: https://t.co/4ew0hvledm https://t.co/VjKrIPOXZR","ClimateReality",548045,10,23,-0.896,-1,1,0,1,-1
+"Environmental racism, classism, and injustice is happening right now in Memphis. 
+
+The @ByhaliaPipeline in Memphis, TN is threatening the predominantly Black cityâ€™s drinking water for their crude oil pipeline. Tell @MEM_Council to Oppose the @ByhaliaPipeline w/ @MemphisCAP_org","ClimateReality",548045,16,30,-0.942,-1,,,,
+"Even if we do everything right, decoupling economic growth with resource use will remain elusive and our environmental problems will continue to worsen.
+
+The only realistic shot humanity has at averting ecological collapse: impose hard caps on resource use.https://t.co/eNSdLv0SoL","ClimateBen",56386,84,206,-0.848,-1,1,-1,1,-1
+"Extreme cold weather has provoked an electricity shortage in Texas, with extensive power cuts affecting over 4 million customers.
+
+Read more from IEAâ€™s Gergely Molnar &amp; Keith Everhart on the causes of the crisis &amp; how to prevent another one in the future: https://t.co/CB0ag3KRpy https://t.co/oZ2IZRqBob","IEA",197182,19,30,-0.852,-1,,,,
+"Extreme cold weather has provoked an electricity shortage in Texas, with extensive power cuts affecting over 4 million customers.
+
+Read more from IEAâ€™s Gergely Molnar &amp; Keith Everhart on the causes of the crisis &amp; how to prevent another one in the future: https://t.co/VDt1ue0gzr https://t.co/R0DdWBsVJX","IEA",197182,6,6,-0.852,-1,,,,
+"Extreme weather events are becoming more frequent and more severe as the climate crisis worsens. And the U.S. power grid is not prepared to handle the hotter heat storms, more frigid cold snaps and stronger hurricanes of a changing planet. https://t.co/biLEM6muyP via @latimes","ClimateNexus",28732,2,2,-0.847,-1,,,,
+"Former directors of @CDCEnvironment are calling for a ""National Institute of Climate Change and Health."" @nytimes columnist Jane Brody shares their warning that ""our failure to take climate change seriously is resulting in needless suffering and death"": https://t.co/BKX9zfMvye","YaleClimateComm",68310,5,11,-0.904,-1,1,-1,1,-1
+"Ghost fishing gear is the deadliest form of marine plastic. From entangling wildlife to damaging marine environments, it wreaks havoc on our seas. This has to stop. Learn more and take action to #StopGhostGear. https://t.co/8d5NPkW1TR","World_Wildlife",1480167,140,220,-0.893,-1,1,-1,1,-1
+"Gjerdrum landslide: 1 found dead, 9 still missing  https://t.co/9HI4swDwlK The combination of quick clay and climate change -  warmer climate and ever more rain - is deadly. The Gjerdrum catastrophe a stark reminder of of the need to act, now","OsmundsenTerje",24778,2,2,-0.866,-1,1,-1,1,-1
+"Gov. Abbot needs to resign, not just for his failure to prepare Texas for climate change, but for his misinformation from the start of the crisis. Join us in calling for his resignation.
+
+https://t.co/Svu0rI73pU","sunrisemvmt",278145,69,192,-0.909,-1,1,-1,1,-1
+"Habitat destruction, chemical/plastic/light/noise pollution, etc not just CC are key causes of species declines/extinctions &amp; ecosystem damage. Deforestation must be stopped immediately.
+
+CC is now combining with these to further threaten biodiversity. 
+https://t.co/bLCSdnNAHp","ClimateBen",56386,28,66,-0.886,-1,1,-1,1,-1
+"Health and climate change: responding to converging crises.
+The COVID-19 pandemic and climate change represent converging crises. Wildfires and tropical storms in 2020 have tragically shown us that we donâ€™t have the luxury of tackling one crisis alone. 
+
+https://t.co/0AFs40iYhF https://t.co/xQgse9c9l6","CmccClimate",3977,0,1,-0.869,-1,,,,
+"Healthy oceans need sharks! 
+But sharks are under threat - killed for their fins and caught by destructive fishing. These amazing creatures need our protection. #ProtectTheOceans &gt;&gt; https://t.co/41DukbW6bL https://t.co/93AohRKCH3","Greenpeace",1896493,91,247,-0.912,-1,1,-1,1,-1
+"Hereâ€™s what EVERYONE needs to know: Texas' fossil fuel infrastructure is failing, and failing spectacularly, right now.
 
 In fact, â€œ90% of the plants that failed have been oil and gas plants and the big coal plants.â€
 
  #ERCOT 3/7
 
-https://t.co/mTW6WC0kWO",-0.872,-1
-"IEA",197182,15,20,"<U+0001F5E3> â€œEarly action on methane emissions will be critical for avoiding the worst effects of climate change. There has never been a greater sense of urgency about this issue than there is today.""
+https://t.co/mTW6WC0kWO","greenpeaceusa",210504,7,11,-0.872,-1,,,,
+"Hey all you second amendment assholes. Remember how you justified having killing machines in your houses because you needed to stand up to a government of jack booted thugs who showed up without insignia, to whisk people off the streets? 
 
-@fbirol launching our Methane Tracker and Regulatory Roadmap: https://t.co/D1HPVQh3NG https://t.co/QQaRefLEwi",-0.872,-1
-"Green_Europe",32632,3,10,"The anti-Roma discrimination highlighted in this BBC documentary is what we call environmental racism. 
-
-It pushes Roma communities to the polluted wastelands, and deprives them of healthcare and sanitation - a deadly combination during a pandemic.
-
-More: https://t.co/WNZXqVTgKK https://t.co/4Fyd6qgzdp",-0.869,-1
-"YaleE360",132499,7,23,"Barely 5% of the 5,000 tons of plastic that Ghanaians discard each day makes it to recycling facilities. The rest winds up in landfills, illegal dumps, streets, and waterways, or is burned in open pits, poisoning the air. Plastic roads present a solution.
-https://t.co/XZ9R4maid8",-0.869,-1
-"AlexandriaV2005",56334,12,55,"the @nytimes people. mouthpiece of the rich and enemy of the poor.
-
-Amateur investors are propelled by hunger, poverty and debt they'll never overcome you pieces of garbage https://t.co/dLtWD2ysjG",-0.869,-1
-"CmccClimate",3977,0,1,"Health and climate change: responding to converging crises.
-The COVID-19 pandemic and climate change represent converging crises. Wildfires and tropical storms in 2020 have tragically shown us that we donâ€™t have the luxury of tackling one crisis alone. 
-
-https://t.co/0AFs40iYhF https://t.co/xQgse9c9l6",-0.869,-1
-"theGCF",49684,0,12,"Today is the International Day for the Elimination of Violence against Women. Find out how GCF is committed to gender equality and contributing to the fight against gender-based violence in its different forms. <U+0001F30E>
-#IDEVAW
-https://t.co/GfkE2g9lBw",-0.866,-1
-"OsmundsenTerje",24778,2,2,"Gjerdrum landslide: 1 found dead, 9 still missing  https://t.co/9HI4swDwlK The combination of quick clay and climate change -  warmer climate and ever more rain - is deadly. The Gjerdrum catastrophe a stark reminder of of the need to act, now",-0.866,-1
-"algore",3057070,214,1463,"I am deeply saddened to learn of Koni Steffenâ€™s tragic death in a crevasse near Swiss Camp, on the top of Greenland. I send my love to his family. Koni's renowned work as a glaciologist has been instrumental in the worldâ€™s deepened understanding of the climate crisis. 1/2",-0.866,-1
-"ClimateNexus",28732,0,0,"Millions of people in the US are drinking water that fails to meet federal health standards, including by violating limits for dangerous contaminants, and Latinos are disproportionately exposed. https://t.co/tVONHTOt2m via @guardian",-0.866,-1
-"YaleClimateComm",68310,5,13,"""There is no way that we will address the climate crisis or biodiversity loss in any sort of timely manner if the #CatholicChurch does not engage, especially with its own lands and property,â€ according to one devout cartographer: https://t.co/ZKwiFEy8tk via @NewYorker https://t.co/MhFNAKWGa0",-0.864,-1
-"ExtinctionR",358387,55,194,"""We canâ€™t rely on @BillGates or @POTUS to solve the climate crisis. The majority of peopleâ€”who will be harmed mostâ€”have to mobilise to demand a different way of organising society: based on meeting the needs of the many, rather than the greed of the few.""
-
-https://t.co/t6aFcQew13",-0.862,-1
-"ExtinctionR",358387,18,69,"Burning oil and coal makes us poorer (oh, and also makes the collapse of organised society and mass human death more likely and imminent) https://t.co/RbFMFDSxhh",-0.862,-1
-"earthwatch_org",14275,0,0,"Small groups of transient killer whales are thriving while groups of â€œresidentâ€ killer whales are dying out. Via @TheAtlantic
-https://t.co/vYbj9CKWyh",-0.862,-1
-"ScarlettOWest",5074,4,18,"also thinking about the teachers and school staff who will have to experience their risk of getting the virus rise exponentially. nobody has the option to shield - cyp will get fined if we try and school staff will get fired. this is going to be disastrous for so many",-0.862,-1
-"ClimateChangeUS",18191,2,1,"#Climate and economic risks 'threaten 2008-style systemic collapse' - environmental and social problems could interact in global breakdown, report says.  https://t.co/MfdrizKGyJ",-0.862,-1
-"KateAronoff",77756,0,20,"@aaronhuertas Cash 4 Clunkers, but an EV one of these bad boys crushes all the internal combustion vehicles https://t.co/gEX4rZCKMR",-0.862,-1
-"ExtinctionR",358387,61,155,"Noam Chomsky says ""The Republican Party is the most dangerous organisation in human history"" because of its climate denial.
-
-And @Microsoft helped some of its worst climate criminals get re-elected. <U+0001F926><U+0001F3FD>
-
-https://t.co/hzuUuvKtgD",-0.859,-1
-"ScarlettOWest",5074,2,12,"@very_onlinee @shoe0nhead i think itâ€™s quite concerning that you misrepresented the account of an activist of colour who wrote about her experiences of being pushed out of a movement because of racism. the title is click baity, but the actual article is about racial trauma which youâ€™ve just undermined",-0.859,-1
-"algore",3057070,485,1043,"The #AustraliaFires are a tragedy brought on by the climate crisis. The country experienced by far its hottest December on record, exacerbating the conditions that lead to the increasingly powerful &amp; frequent burning events. This is a startling illustration of the dangerous heat. https://t.co/QuGlJXYjYS",-0.859,-1
-"xiyebastida",17397,27,165,"Whoever came up with â€œnatural gasâ€ and â€œvegan leatherâ€... genius marketing tools but we will stop fracking and the plastic crisis <U+0001F607>",-0.857,-1
-"xiyebastida",17397,144,617,"Hi, kids are already fighting for:
+Where the fuck are you now?","oof",9668,0,6,-0.885,-1,0,,0,
+"Hi, kids are already fighting for:
 
 -Climate Justice
 -Gun Control
@@ -226,41 +159,108 @@ https://t.co/hzuUuvKtgD",-0.859,-1
 
 Stop furthering injustice and fix whatâ€™s broken. We will speak up. 
 
-#NoWarWithIran",-0.856,-1
-"Green_Europe",32632,2,13,"Corporate activities and supply chains too often lead to
-<U+0001F534>Human rights abuses
-<U+0001F534>Labour exploitation and forced labour
-<U+0001F534>Environmental destruction
-You can help change that! Click by 8 Feb and demand that the EU holds business accountable
+#NoWarWithIran","xiyebastida",17397,144,617,-0.856,-1,,,,
+"Human existence is threatened more by #climate change-driven extreme weather than by weapons of mass destruction, report warns https://t.co/sBjLLuhkXD","ClimateChangeUS",18191,2,2,-0.875,-1,1,-1,1,-1
+"I am deeply saddened to learn of Koni Steffenâ€™s tragic death in a crevasse near Swiss Camp, on the top of Greenland. I send my love to his family. Koni's renowned work as a glaciologist has been instrumental in the worldâ€™s deepened understanding of the climate crisis. 1/2","algore",3057070,214,1463,-0.866,-1,,,,
+"I remember when Rush Limbaugh said he hated me and all the ""stupid kids"" striking for a better world. He said we were the victims of ""leftist climate change child abuse"".
 
-#ClimateOfChange
-https://t.co/PsAsDxA2vi",-0.855,-1
-"ExtinctionR",358387,63,113,"You might think a cold country like Canada <U+0001F1E8><U+0001F1E6> would escape the worst of climate breakdown. 
+I was 13.","AlexandriaV2005",56334,163,1126,-0.904,-1,1,-1,1,-1
+"If global heating continues unchecked, it could have a devastating impact on the planet, causing food shortages, raising sea levels and sparking extreme weather.
+
+Here is roadmap for six sectors key to avoiding the worst of these effects.
+#ClimateAction https://t.co/QBjCtbvtBS","JoyceMsuya",21141,48,94,-0.908,-1,1,-1,1,-1
+"In the past 20 years, 77 percent of disaster losses were caused by #extremeweather - and #climate change is making things worse.  https://t.co/MRzFTafHzf","ClimateChangeUS",18191,1,3,-0.872,-1,1,-1,1,-1
+"Los Angeles fire chief Daryl Osby says #climate change is undeniably a part of making wildfires in northern and southern California more devastating and destructive than in years past. https://t.co/UnBcDGIbgn","ClimateChangeUS",18191,2,3,-0.905,-1,1,-1,1,-1
+"Millions of people in the US are drinking water that fails to meet federal health standards, including by violating limits for dangerous contaminants, and Latinos are disproportionately exposed. https://t.co/tVONHTOt2m via @guardian","ClimateNexus",28732,0,0,-0.866,-1,0,,1,-1
+"Morocco gets 2 million AstraZeneca vaccine doses, first big shipment to Africa https://t.co/74HCRAcw21 
+Africa has the highest COVID 19 death fatality rate(2,5%) but so far no vaccination program.
+A ""moral disaster"" says WHO chief Ghebreyesus","OsmundsenTerje",24778,1,5,-0.933,-1,0,,0,
+"Neighborhoods across Texas went cold and dark for days as the state struggled to keep the power on during a dangerous winter storm. But while the catastrophe was shared by millions, the suffering was not equally spread. https://t.co/mvswYR2vQJ via @TexasTribune","ClimateNexus",28732,0,3,-0.898,-1,1,-1,1,-1
+"New research underscores that our failure to act on the climate crisis far outweighs the costs of acting. If we don't cut emissions significantly, the U.S. stands to lose more than 10% of its GDP by 2100. We must summon the will to act now. https://t.co/Y3CbFzI2Yo","algore",3057070,340,891,-0.851,-1,1,-1,1,-1
+"Noam Chomsky says ""The Republican Party is the most dangerous organisation in human history"" because of its climate denial.
+
+And @Microsoft helped some of its worst climate criminals get re-elected. <U+0001F926><U+0001F3FD>
+
+https://t.co/hzuUuvKtgD","ExtinctionR",358387,61,155,-0.859,-1,1,-1,1,-1
+"Now we know scientists are projecting severe climate disruption and ecosystem collapse by around 2038 which will make it hard for every human to live we can start making some informed decisions together regarding how to create rapid emergency worldwide system change for survival.","ClimateBen",56386,237,522,-0.848,-1,1,-1,1,-1
+"Our climate is in crisis. Our democracy is in crisis. Justice is in crisis. Our health is in crisis. Join me July 18-26 for the first virtual @ClimateReality Leadership Corps Global Training and become part of the solution. #LeadOnClimate Register now: https://t.co/zjZPg87xpX https://t.co/eARdJmkYMq","algore",3057070,233,625,-0.889,-1,1,-1,1,-1
+"Outrageous price gouging of utility bills right after one of Texasâ€™ worst climate disasters is a slap in the face to all Texans, and it will only accelerate rising poverty rates in the South.
+
+@GovAbbott, cancel these utility bills *now* and resign for your failure to serve Texas https://t.co/lHEeqrrvRr","sunrisemvmt",278145,39,134,-0.964,-1,,,,
+"Prof. Erik Gawel &amp; Prof. @pleh_mann (@UFZ_de @UniLeipzig): ""Killing two birds with one stone? Green dead ends and ways out of the #coronavirus crisis"". 'Corona Sustainability Compass', the #science blog by @FutureEarth @ISC @Stiftung2Grad &amp; UBA. Read now: https://t.co/5k8YGxqgvA","GermanEnvAgency",1470,4,4,-0.93,-1,1,0,1,-1
+"Racist redlining policies have pushed many communities of color â€“ particularly Black communities â€“ into urban heat islands. During heat waves, that means people of color could face a higher risk of death. 
+https://t.co/G7KZimE9qL","ClimateReality",548045,21,46,-0.875,-1,,,,
+"Research shows that diesel school buses hurt studentsâ€™ health and could put them at risk of developing cancer. 
+
+So one school district took action. https://t.co/bNybDrX7WM","ClimateReality",548045,21,53,-0.872,-1,,,,
+"Rising temperatures, drought &amp; weather disasters - all results of #climate change - can threaten peopleâ€™s health. And children are often hurt the worst. https://t.co/Wm401RIpqH","ClimateChangeUS",18191,3,4,-0.929,-1,,,,
+"Sad news from Sweden this week. Nine people have drowned because of weak sea Ice. 
+
+Winter weather is crazy.
+
+#WeDontHaveTime","WeDontHaveTime",85675,7,31,-0.906,-1,1,-1,1,-1
+"Saffron finches are being snatched out of forests and sold in Brazil for use in brutal, illegal fighting rings. Lax wildlife laws have made it difficult for authorities to crack down on the lucrative trade, leaving traffickers and ring runners undeterred. https://t.co/aHHF92g0lp","YaleE360",132499,17,14,-0.914,-1,1,-1,1,-1
+"school protest for climate week 43
+#climatestrikeonline #ClimateAction #ClimateEmergency   <U+0627><U+0644><U+0639><U+062F><U+0627><U+0644><U+0629> <U+0644><U+0644><U+0645><U+0646><U+0627><U+062E><U+2728>
+<U+0001F30D>its disgusting how the climate crisis is being treated. it seriously doesn't make sense. you too will be affected!!<U+0001F30F> https://t.co/6HSvy6xqDR","Farah_mkma",1673,191,1545,-0.895,-1,1,-1,1,-1
+"Scientists:
+
+""ecosystems are in varying states of collapse from the tropics to Antarctica.""
+
+https://t.co/4GXCWbQHqR
+
+'in the near future, even apparently resilient ecosystems are likely to suffer collapse as the intensity and frequency of pressures increase.' https://t.co/0K4QEwjXH3","ClimateBen",56386,28,42,-0.872,-1,1,-1,1,-1
+"Small groups of transient killer whales are thriving while groups of â€œresidentâ€ killer whales are dying out. Via @TheAtlantic
+https://t.co/vYbj9CKWyh","earthwatch_org",14275,0,0,-0.862,-1,,,,
+"state violence shouldnâ€™t have to be the answer to people trying to stay alive. the amount of abuse that occurs within mental health services is beyond ridiculous and itâ€™s scary to think of how many people leave them being even more traumatised","ScarlettOWest",5074,5,34,-0.946,-1,,,,
+"That vision? That's the Green New Deal.
+
+We've seen a lot of ""once in a century"" events recently. Floods. Hurricanes. Fires.
+
+But as climate change continues to worsen, they're no longer ""hundred-year"" events. They're happening every year, each worse than the last.","sunrisemvmt",278145,54,226,-0.898,-1,1,-1,1,-1
+"The #AustraliaFires are a tragedy brought on by the climate crisis. The country experienced by far its hottest December on record, exacerbating the conditions that lead to the increasingly powerful &amp; frequent burning events. This is a startling illustration of the dangerous heat. https://t.co/QuGlJXYjYS","algore",3057070,485,1043,-0.859,-1,1,-1,1,-1
+"the @nytimes people. mouthpiece of the rich and enemy of the poor.
+
+Amateur investors are propelled by hunger, poverty and debt they'll never overcome you pieces of garbage https://t.co/dLtWD2ysjG","AlexandriaV2005",56334,12,55,-0.869,-1,0,,0,
+"The anti-Roma discrimination highlighted in this BBC documentary is what we call environmental racism. 
+
+It pushes Roma communities to the polluted wastelands, and deprives them of healthcare and sanitation - a deadly combination during a pandemic.
+
+More: https://t.co/WNZXqVTgKK https://t.co/4Fyd6qgzdp","Green_Europe",32632,3,10,-0.869,-1,0,,1,-1
+"The future of all living things depends on thriving forests. And yet, theyâ€™re being destroyed at an alarming rate. Forest loss threatens nature and human health and exacerbates the climate crisis. Learn more and see what you can do to help: https://t.co/lAKOJ4nhRi https://t.co/8zus8W29Ie","World_Wildlife",1480167,52,138,-0.875,-1,,,,
+"The Keystone XL pipeline may be dead, but Alberta's government is still fighting for its oil sands industry. It has published a series of conspiracy theory-laced reports attacking environmental advocates in the process.
+
+https://t.co/2EvYhy5ICp","insideclimate",132424,8,10,-0.938,-1,1,-1,1,-1
+"The same destructive forces that deny the established science of the climate crisis are denying the truth about the toll of the coronavirus. Itâ€™s the same playbook and itâ€™s cancerous for our democracy. https://t.co/Xv1wHvZOyQ","algore",3057070,389,1196,-0.891,-1,,,,
+"The tar spill in the Mediterranean is not an accident, but an environmental crime perpetrated by people.
+ 
+Such a crime underscores the danger of toxic fuels and how foolish it is to rely on them. Itâ€™s time for a #FossilFreeRevolution.
+ 
+<U+0001F4F8>: Elad Aybes https://t.co/e0mxPHC97Y","greenpeaceusa",210504,18,20,-0.951,-1,,,,
+"Time to panic, one writer argues: The planet is getting warmer in catastrophic ways. And fear may be the only thing that saves us. #climate https://t.co/c18JCymlTw","ClimateChangeUS",18191,5,6,-0.878,-1,1,-1,1,-1
+"Today is #WorldDayofSocialJustice! <U+270A><U+0001F3FB><U+270A><U+0001F3FC><U+270A><U+0001F3FD><U+270A><U+0001F3FF>
+
+But thereâ€™s no social justice without environmental justice. We must hold the fossil fuel industry accountable for the #ClimateCrisis that is making poverty and inequality worse.
+
+Itâ€™s time for a #FossilFreeRevolution! https://t.co/E9yozqsyR3","greenpeaceusa",210504,85,195,-0.955,-1,,,,
+"Today is the International Day for the Elimination of Violence against Women. Find out how GCF is committed to gender equality and contributing to the fight against gender-based violence in its different forms. <U+0001F30E>
+#IDEVAW
+https://t.co/GfkE2g9lBw","theGCF",49684,0,12,-0.866,-1,0,,0,
+"Today, we commemorate the end of slavery &amp; celebrate Black freedom. Yet, the fight for equality and justice continues in the face of systemic racism, police brutality, ecological devastation and the climate crisis. There can be no climate justice without racial justice. 1/2","algore",3057070,147,715,-0.949,-1,1,-1,1,-1
+"Too much CO2 is killing micro-organisms in the #oceans, undermining critical food chains. #climate https://t.co/556hJqDs2a","ClimateChangeUS",18191,6,5,-0.848,-1,1,-1,1,-1
+"Wall Street: We scared of a little discord and subreddit, must shut them down and keep poor people poor.
+
+Tik Tok: hi
+
+#wallstreetbets","AlexandriaV2005",56334,5,72,-0.889,-1,0,,0,
+"What if our government worked as hard as we do to take care of our communities in a crisis?
+
+Imagine a well-paid civilian corps of climate crisis responders, showing up to help us out when disaster strikes.","sunrisemvmt",278145,48,188,-0.883,-1,1,0,1,-1
+"Whoever came up with â€œnatural gasâ€ and â€œvegan leatherâ€... genius marketing tools but we will stop fracking and the plastic crisis <U+0001F607>","xiyebastida",17397,27,165,-0.857,-1,,,,
+"Without urgent action now, we may be barreling toward what was previously considered the worst case scenario for global warming. This alarming study sheds new light on how grave a danger our planet is in. https://t.co/6ayBVm1Lf0","algore",3057070,499,1023,-0.891,-1,1,-1,1,-1
+"Years of bad investments made fossil fuel companies susceptible to crisis, and when the pandemic came, states were left holding the bag. As we recover from the COVID19 crisis, we must chose #PeopleNotPolluters. https://t.co/8cFiIJun4R","ClimateNexus",28732,1,2,-0.914,-1,1,-1,1,-1
+"You might think a cold country like Canada <U+0001F1E8><U+0001F1E6> would escape the worst of climate breakdown. 
 
 Not according to @NFUCanada: ""terrifying rate of warming... incredibly destructive... climate change is to agriculture as the pandemic was to retail.â€
 
-https://t.co/l44gRn9lXZ",-0.852,-1
-"IEA",197182,6,6,"Extreme cold weather has provoked an electricity shortage in Texas, with extensive power cuts affecting over 4 million customers.
-
-Read more from IEAâ€™s Gergely Molnar &amp; Keith Everhart on the causes of the crisis &amp; how to prevent another one in the future: https://t.co/VDt1ue0gzr https://t.co/R0DdWBsVJX",-0.852,-1
-"IEA",197182,19,30,"Extreme cold weather has provoked an electricity shortage in Texas, with extensive power cuts affecting over 4 million customers.
-
-Read more from IEAâ€™s Gergely Molnar &amp; Keith Everhart on the causes of the crisis &amp; how to prevent another one in the future: https://t.co/CB0ag3KRpy https://t.co/oZ2IZRqBob",-0.852,-1
-"ErikSolheim",145787,160,695,"Astonishing!
-May be the biggest achievement of this century so far!
-Chinese <U+0001F1E8><U+0001F1F3> President Xi Jinping announced this week that China has scored a â€œcomplete victoryâ€ in its fight against extreme poverty. In 1980 China was poorer than Africa.
-
- https://t.co/0QK95Gs2uX",-0.851,-1
-"algore",3057070,340,891,"New research underscores that our failure to act on the climate crisis far outweighs the costs of acting. If we don't cut emissions significantly, the U.S. stands to lose more than 10% of its GDP by 2100. We must summon the will to act now. https://t.co/Y3CbFzI2Yo",-0.851,-1
-"UNEP_Europe",23082,17,45,"25 November is the International Day to End Violence against Women &amp; the <U+0001F30E> is turning orange <U+0001F9E1> to show that #GenerationEquality stands against gender-based violence. 
-
-Letâ€™s kick off the #16Days of Activism with @UN_Women &amp; #orangetheworld. 
-
-https://t.co/FLwUBTZUfx",-0.848,-1
-"algore",3057070,56,365,"As #HurricaneLaura overwhelms the Gulf Coast, it's now painfully clear how supercharged these storms are by rising global temps. At the same time, we are fighting multiple interconnected crises - the pandemic, systemic racism &amp; voter suppression among them. 2/4",-0.848,-1
-"ClimateBen",56386,84,206,"Even if we do everything right, decoupling economic growth with resource use will remain elusive and our environmental problems will continue to worsen.
-
-The only realistic shot humanity has at averting ecological collapse: impose hard caps on resource use.https://t.co/eNSdLv0SoL",-0.848,-1
-"ClimateBen",56386,237,522,"Now we know scientists are projecting severe climate disruption and ecosystem collapse by around 2038 which will make it hard for every human to live we can start making some informed decisions together regarding how to create rapid emergency worldwide system change for survival.",-0.848,-1
-"ClimateChangeUS",18191,6,5,"Too much CO2 is killing micro-organisms in the #oceans, undermining critical food chains. #climate https://t.co/556hJqDs2a",-0.848,-1
-"CANIntl",32551,3,5,"""Speakers at a youth-focused press briefing hosted by @CANIntl reminded world leaders that distant plans to cut emissions &amp; a failure to address the immediate needs of the most vulnerable people do not line up with the escalating scale of the climate emergency"" https://t.co/l4yaLRhrMH",-0.848,-1
+https://t.co/l44gRn9lXZ","ExtinctionR",358387,63,113,-0.852,-1,,,,
