@@ -6,9 +6,12 @@ library(syuzhet)
 library(tidytext)
 library(tibble)
 library(stringr)
+library(ggplot2)
+library(vioplot)
 
 #Change for your system
 setwd("C:/Users/fabia/Desktop/MSc RSC/FS 2021/SDS/Project")
+options(device = "windows")
 
 #### Section: Extract Data From Twitter ####
 
@@ -262,67 +265,195 @@ write_as_csv(df, 'timeline_db_classified.csv')
 write_as_csv(df_positive, 'timeline_db_positive.csv')
 write_as_csv(df_negative, 'timeline_db_negative.csv')
 
-#### Merge Action ####
 
-#logarythmize the followers and retweets
-df$log_followers <- log(df$followers_count)
-df$log_retweets <- log(df$retweet_count)
+#### Section: Bootstrapping ####
 
-#split df in negative (-1) and positive (1) sentiments
-df %>% filter(threshold == -1) -> df_neg_plot
-df_neg_plot %>% filter(retweet_count != 0) -> df_neg_plot
-df %>% filter(threshold == 1) -> df_pos_plot
-df_pos_plot %>% filter(retweet_count != 0) -> df_pos_plot
-df_pos_plot %>% filter(log_followers > 7) -> df_pos_plot
-df_neg_plot %>% filter(log_followers > 7) -> df_neg_plot
+#Create dataframe one wants to test (both positive and negative data together! Threshold column will be selected!)
+df = read.csv('timeline_db_classified.csv')
 
-#plot both negative and positive data to get first impression
-plot(df_neg_plot$log_followers, df_neg_plot$log_retweets)
-plot(df_pos_plot$log_followers, df_pos_plot$log_retweets)
+#Create dataframe from labeled data
+dfpos = read.csv('timeline_db_positive_labeled2.csv')
+dfneg = read.csv('timeline_db_negative_labeled2.csv')
+#Assign labels of first person (can be changed later)
+dfpos$threshold = dfpos$Sentiment1
+dfneg$threshold = dfneg$Sentiment1
+df = rbind(dfpos, dfneg)
 
-#models for lineaer regression
-model1 <- lm(df_neg_plot$log_retweets ~ df_neg_plot$log_followers)
-model2 <- lm(df_pos_plot$log_retweets ~ df_pos_plot$log_followers)
+#Select positive and negative tweets in separate dataframe
+df_positive = df %>% filter(df$threshold == 1)
+df_negative = df %>% filter(df$threshold == -1)
 
-#plot regression of positive and negative tweets
-plot(df_neg_plot$log_retweets ~ df_neg_plot$log_followers,xlab="Followers", ylab="Retweets",pch = 18, col = "grey")
-points(df_pos_plot$log_retweets ~ df_pos_plot$log_followers,pch = 2, col = "darkolivegreen")
-legend("topleft", inset=.05,
-   c("Negative","Positive", "Neg_Regr", "Pos_Regr"), fill=c("grey", "darkolivegreen", "blue", "red"), horiz=TRUE)
-abline(model1, lwd = 2, col = "blue")
-abline(model2, lwd = 2, col = "red")
+#Select only tweets with responses greater than 1
+#df_positive = df_positive %>% filter(df_positive$retweet_count >= 1)
+#df_negative = df_negative %>% filter(df_negative$retweet_count >= 1)
 
-#coefficients of both regressions
-summary(model1)
-summary(model2)
+#Select only retweet count and follower count
+df_positive = df_positive %>% select(retweet_count, followers_count)
+df_negative = df_negative %>% select(retweet_count, followers_count)
 
-#same procedure for the top 100 positive and negative tweets
-df_100pos <- df_positive
-df_100neg <- df_negative
-df_100pos %>% filter(retweet_count != 0) -> df_100pos
-df_100neg %>% filter(retweet_count != 0) -> df_100neg
+#Calculate log of retweet and followers
+df_positive$retweet_log = log(df_positive$retweet_count)
+df_negative$retweet_log = log(df_negative$retweet_count)
+df_positive$follower_log = log(df_positive$followers_count)
+df_negative$follower_log = log(df_negative$followers_count)
 
-df_100pos$log_followers <- log(df_100pos$followers_count)
-df_100pos$log_retweets <- log(df_100pos$retweet_count)
-df_100neg$log_followers <- log(df_100neg$followers_count)
-df_100neg$log_retweets <- log(df_100neg$retweet_count)
+#Replace 0 retweets with 0 in log-scale
+df_positive$retweet_log[df_positive$retweet_log  == -Inf] = 0
+df_negative$retweet_log[df_negative$retweet_log == -Inf] = 0
 
-#exclude tweets with log(followers) smaller 7
-df_100pos %>% filter(log_followers > 7) -> df_100pos
-df_100neg %>% filter(log_followers > 7) -> df_100neg
+#Fit regression model
+posreg = lm(df_positive$retweet_log ~ df_positive$follower_log)
+negreg = lm(df_negative$retweet_log ~ df_negative$follower_log)
 
-#Regression and plot of top 100
-model3 <- lm(df_100pos$log_retweets ~ df_100pos$log_followers)
-model4 <- lm(df_100neg$log_retweets ~ df_100neg$log_followers)
-plot(df_100pos$log_retweets ~ df_100pos$log_followers,xlab="Followers", ylab="Retweets",pch = 18, col = "darkolivegreen")
-points(df_100neg$log_retweets ~ df_100neg$log_followers,pch = 2, col = "grey")
-legend("topleft", inset=.05,
-   c("Negative","Positive", "Neg_Regr", "Pos_Regr"), fill=c("grey", "darkolivegreen", "blue", "red"), horiz=TRUE)
-abline(model4, lwd = 2, col = "blue")
-abline(model3, lwd = 2, col = "red")
+slope_diff_observed = negreg$coefficients[2] - posreg$coefficients[2]
 
-#coefficients of both regressions
-summary(model3)
-summary(model4)
+#Plot results
+plot(x = df_positive$follower_log, y = df_positive$retweet_log, pch = 20, col = rgb(0,0,1), xlab = "Log of Followers", ylab = "Log of Retweets")
+points(x = df_negative$follower_log, y = df_negative$retweet_log, pch = 18, col = rgb(1,0,0))
+legend("topleft", inset = .05, c('Positive', 'Negative'), fill = c(rgb(0,0,1), rgb(1,0,0)), horiz = TRUE)
+abline(posreg$coefficients[1], posreg$coefficients[2], col = rgb(0,0,1), lwd = 2)
+abline(negreg$coefficients[1], negreg$coefficients[2], col = rgb(1,0,0), lwd = 2)
 
-#### Section: Graphs and Results ####
+#Bootstrapping for positive model
+M = 1000
+bootSlopes_pos = numeric(M)
+bootIntercepts_pos = numeric(M)
+for(i in 1:M)
+{
+  BootSample = sample(nrow(df_positive), replace = T)
+  bootmodel = lm(df_positive$retweet_log[BootSample] ~ df_positive$follower_log[BootSample])
+  bootSlopes_pos[i] = bootmodel$coefficients[2]
+  bootIntercepts_pos[i] = bootmodel$coefficients[1]
+}
+
+#Repeat for negative models
+bootSlopes_neg = numeric(M)
+bootIntercepts_neg = numeric(M)
+for(i in 1:M)
+{
+  BootSample = sample(nrow(df_positive), replace = T)
+  bootmodel = lm(df_negative$retweet_log[BootSample] ~ df_negative$follower_log[BootSample])
+  bootSlopes_neg[i] = bootmodel$coefficients[2]
+  bootIntercepts_neg[i] = bootmodel$coefficients[1]
+}
+
+#Create common histogram to see distributions
+hgpos = hist(bootSlopes_pos, breaks = 12)
+hgneg = hist(bootSlopes_neg, breaks = 12)
+range_x = range(c(hgpos$breaks - 0.1, hgneg$breaks + 0.1))
+range_y = c(0, max(c(hgpos$count, hgneg$count)) + 250)
+plot(hgpos, col = rgb(0,0, 1, 0.2), xlim = range_x, ylim = range_y, xlab = 'Slope coefficient', main = 'Histogram of slope coefficients')
+plot(hgneg, add = TRUE, col = rgb(1,0,0, 0.2))
+abline(v = posreg$coefficients[2], col = rgb(0,0,1), lwd = 3)
+abline(v = negreg$coefficients[2], col = rgb(1,0,0), lwd = 3)
+
+#Plot all the lines from Bootstrapping
+plot(x = df_positive$follower_log, y = df_positive$retweet_log, pch = 20, col = rgb(0,0,1), xlab = "Log of Followers", ylab = "Log of Retweets")
+legend("topleft", inset = .05, c('Positive', 'Negative'), fill = c(rgb(0,0,1), rgb(1,0,0)), horiz = TRUE)
+points(x = df_negative$follower_log, y = df_negative$retweet_log, pch = 18, col = rgb(1,0,0))
+for(i in 1:1000)
+{
+  abline(bootIntercepts_pos[i], bootSlopes_pos[i], col = rgb(0,0,1,0.01))
+  abline(bootIntercepts_neg[i], bootSlopes_neg[i], col = rgb(1,0,0,0.01))
+}
+abline(posreg$coefficients[1], posreg$coefficients[2], col = rgb(0,0,1), lwd = 3)
+abline(negreg$coefficients[1], negreg$coefficients[2], col = rgb(1,0,0), lwd = 3)
+
+#### Section: Further Analysis ####
+
+#Filter out all useful (i.e positive or negative) responses
+df_good = df %>% filter(df$threshold == 1 | df$threshold == -1)
+
+#Select users with most useful responses
+best_users = df_good %>% group_by(screen_name) %>% summarise(count = n()) %>% arrange(desc(count))
+#Select most popular users
+popular_users = distinct(df_good %>% arrange(desc(followers_count)) %>% select(screen_name))
+
+#User Analysis (take users with most useful tweets) or enter 1 you are interested in
+username = best_users$screen_name[1]
+username = popular_users$screen_name[1]
+#Filter out user and relevant columns
+usertweets = df_good %>% filter(screen_name == username) %>% select(retweet_count, followers_count, screen_name, threshold)
+#Create positive frame for user
+usertweets_pos = usertweets %>% filter(threshold == 1)
+#Take log of retweet count and its mean
+usertweets_pos$retweet_count = log(usertweets_pos$retweet_count)
+usertweets_pos$retweet_count[usertweets_pos$retweet_count == -Inf | usertweets_pos$retweet_count == -1] = 0
+mean_pos = mean(usertweets_pos$retweet_count)
+#Set plot height
+#Repeat for negative frame of user
+usertweets_pos$const = 0.75
+usertweets_neg = usertweets %>% filter(threshold == -1)
+usertweets_neg$const = 0.25
+usertweets_neg$retweet_count = log(usertweets_neg$retweet_count)
+usertweets_neg$retweet_count[usertweets_neg$retweet_count == -Inf | usertweets_neg == -1] = 0
+mean_neg = mean(usertweets_neg$retweet_count)
+
+#Plot results
+plot(usertweets_pos$retweet_count, usertweets_pos$const, xlab = 'Log of Retweets', ylab = '', pch = 20, ylim = c(0,1), xlim = c(0,10), col = rgb(0,0,1), yaxt = "n", main = username)
+points(usertweets_neg$retweet_count, usertweets_neg$const, pch = 18, col = rgb(1,0,0))
+legend("topleft", inset = .05, c('Positive', 'Negative'), fill = c(rgb(0,0,1), rgb(1,0,0)), horiz = TRUE)
+abline(v = mean_pos, col = rgb(0,0,1), ylim = c(0.25, 0.75))
+abline(v = mean_neg, col = rgb(1,0,0), ylim = c(0.25,0.75))
+
+#Additional Plots
+
+#Set all retweets to at least 1
+df_good = df %>% filter(df$threshold == 1 | df$threshold == -1)
+df_good$retweet_count[df_good$retweet_count == 0] = 1
+df_good$retweet_count_log = log(df_good$retweet_count)
+df_pos = df_good %>% filter(threshold == 1)
+df_neg = df_good %>% filter(threshold == -1)
+
+#Create a violin plot
+vioplot(df_pos$retweet_count_log, df_neg$retweet_count_log, names = c("Positive", "Negative"), col = "gold")
+title("Violin Plot of Log of Retweet Count")
+
+#Create a boxplot
+boxplot(retweet_count_log~threshold, data = df_good, main = "Retweet Count Box Plot", xlab = "Sentiment", ylab = "Log of Retweet Count")
+#boxplot(retweet_count~threshold, data = df_good, main = "Retweet Count Box Plot", xlab = "Sentiment", ylab = "Retweet Count")
+
+#### Section: Permutation Test ####
+
+#Set number of permutations
+M = 1000
+slope_diff = numeric(length = M)
+#Reread data and prepare it 
+df = read.csv('timeline_db_classified.csv')
+
+#Keeping only pos. and neg. rows
+df = df %>% filter(threshold == 1 | threshold == -1)
+
+#Calculate log of retweets and followers
+df$followers_count = log(df$followers_count)
+df$retweet_count = log(df$retweet_count)
+
+for (i in 1:M)
+{
+  #Shuffle follower count column
+  df$followers_count = sample(df$followers_count, replace = FALSE)
+  
+  #Select positive and negative tweets in separate dataframe
+  df_positive = df %>% filter(df$threshold == 1)
+  df_negative = df %>% filter(df$threshold == -1)
+  
+  #Select only retweet count and follower count
+  df_positive = df_positive %>% select(retweet_count, followers_count)
+  df_negative = df_negative %>% select(retweet_count, followers_count)
+  
+  #Replace 0 retweets with 0 in log-scale
+  df_positive$retweet_count[df_positive$retweet_count  == -Inf] = 0
+  df_negative$retweet_count[df_negative$retweet_count == -Inf] = 0
+  
+  #Fit regression model
+  posreg = lm(df_positive$retweet_count ~ df_positive$followers_count)
+  negreg = lm(df_negative$retweet_count ~ df_negative$followers_count)
+  
+  slope_diff[i] = negreg$coefficients[2] - posreg$coefficients[2]
+}
+hist(slope_diff, xlim = range(c(slope_diff, slope_diff_observed)), main = "Histogram of Slope Difference", xlab = "Slope Difference")
+abline(v = slope_diff_observed, col = 'red')
+
+
+
+
