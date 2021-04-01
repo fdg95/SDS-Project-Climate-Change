@@ -264,7 +264,65 @@ write_as_csv(df_negative, 'timeline_db_negative.csv')
 
 #### Merge Action ####
 
+#logarythmize the followers and retweets
+df$log_followers <- log(df$followers_count)
+df$log_retweets <- log(df$retweet_count)
 
+#split df in negative (-1) and positive (1) sentiments
+df %>% filter(threshold == -1) -> df_neg_plot
+df_neg_plot %>% filter(retweet_count != 0) -> df_neg_plot
+df %>% filter(threshold == 1) -> df_pos_plot
+df_pos_plot %>% filter(retweet_count != 0) -> df_pos_plot
+df_pos_plot %>% filter(log_followers > 7) -> df_pos_plot
+df_neg_plot %>% filter(log_followers > 7) -> df_neg_plot
 
+#plot both negative and positive data to get first impression
+plot(df_neg_plot$log_followers, df_neg_plot$log_retweets)
+plot(df_pos_plot$log_followers, df_pos_plot$log_retweets)
+
+#models for lineaer regression
+model1 <- lm(df_neg_plot$log_retweets ~ df_neg_plot$log_followers)
+model2 <- lm(df_pos_plot$log_retweets ~ df_pos_plot$log_followers)
+
+#plot regression of positive and negative tweets
+plot(df_neg_plot$log_retweets ~ df_neg_plot$log_followers,xlab="Followers", ylab="Retweets",pch = 18, col = "grey")
+points(df_pos_plot$log_retweets ~ df_pos_plot$log_followers,pch = 2, col = "darkolivegreen")
+legend("topleft", inset=.05,
+   c("Negative","Positive", "Neg_Regr", "Pos_Regr"), fill=c("grey", "darkolivegreen", "blue", "red"), horiz=TRUE)
+abline(model1, lwd = 2, col = "blue")
+abline(model2, lwd = 2, col = "red")
+
+#coefficients of both regressions
+summary(model1)
+summary(model2)
+
+#same procedure for the top 100 positive and negative tweets
+df_100pos <- df_positive
+df_100neg <- df_negative
+df_100pos %>% filter(retweet_count != 0) -> df_100pos
+df_100neg %>% filter(retweet_count != 0) -> df_100neg
+
+df_100pos$log_followers <- log(df_100pos$followers_count)
+df_100pos$log_retweets <- log(df_100pos$retweet_count)
+df_100neg$log_followers <- log(df_100neg$followers_count)
+df_100neg$log_retweets <- log(df_100neg$retweet_count)
+
+#exclude tweets with log(followers) smaller 7
+df_100pos %>% filter(log_followers > 7) -> df_100pos
+df_100neg %>% filter(log_followers > 7) -> df_100neg
+
+#Regression and plot of top 100
+model3 <- lm(df_100pos$log_retweets ~ df_100pos$log_followers)
+model4 <- lm(df_100neg$log_retweets ~ df_100neg$log_followers)
+plot(df_100pos$log_retweets ~ df_100pos$log_followers,xlab="Followers", ylab="Retweets",pch = 18, col = "darkolivegreen")
+points(df_100neg$log_retweets ~ df_100neg$log_followers,pch = 2, col = "grey")
+legend("topleft", inset=.05,
+   c("Negative","Positive", "Neg_Regr", "Pos_Regr"), fill=c("grey", "darkolivegreen", "blue", "red"), horiz=TRUE)
+abline(model4, lwd = 2, col = "blue")
+abline(model3, lwd = 2, col = "red")
+
+#coefficients of both regressions
+summary(model3)
+summary(model4)
 
 #### Section: Graphs and Results ####
