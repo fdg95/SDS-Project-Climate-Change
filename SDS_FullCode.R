@@ -1,19 +1,3 @@
----
-title: "Emotions in climate change: a sentiment and impact analysis on climate related tweets using VADER"
-output: html_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-## Emotions in climate change: a sentiment and impact analysis on climate related tweets using VADER
-
-This is the code that was used to generate the findings that were summarized in the project report "Emotions in climate change: a sentiment and impact analysis on climate related tweets using VADER" by Meijun Chen, Martina Buck, Fabian Geissmann and Lukas Dahlhaus. In the follwoing markdown the separate sections are shown and explained with short comments that shall extend the descriptions that can be found in the report.
-
-Used libraries:
-
-```{r pressure, echo=FALSE}
 library(rtweet)
 library(dplyr)
 library(tidygraph)
@@ -24,23 +8,22 @@ library(tibble)
 library(stringr)
 library(ggplot2)
 library(vioplot)
-```
 
-In the first step, the data was extracted from twitter based on the 80 accounts that were initially defined by the authors:
+#Change for your system
+options(device = "windows")#Create plots in a seperate window
 
-```{r pressure, echo=FALSE}
+#### Section: Data Retrieval ####
+
 #Read our list of twitter accounts from csv
 df = read.csv("TwitterAccs.csv",
               header=TRUE, stringsAsFactors=FALSE)
 
-#Get information about our users from Twitter
+#Get information about our users
 user_db = lookup_users(users = df$Acc)
 write_as_csv(user_db, "user_db.csv")
-#Only select relevant columns
-user_filtered = user_db %>% select(screen_name, followers_count, protected, statuses_count) 
+user_filtered = user_db %>% select(screen_name, followers_count, protected, statuses_count) #Only select relevant columns
 write_as_csv(user_filtered, "user_filtered.csv")
 
-#Get some insights into our users
 user_filtered %>% arrange(statuses_count) %>% head(20) #display users with least number of tweets
 user_filtered %>% arrange(followers_count) %>% head(20) #display users with least followers
 user_filtered %>% arrange(desc(followers_count)) %>% head(20) #display users with most followers
@@ -52,24 +35,122 @@ timeline_db = timeline %>% filter(timeline$created_at < "2021-03-02 00:00:00 UTC
 timeline$created_at %>% head(5) #Check the dates
 timeline_db$created_at %>% head(5) #Check dates after filtering out last week
 
-write_as_csv(timeline, "timeline.csv") #10277 entries --> All tweets
-write_as_csv(timeline_db, "timeline_db.csv") #7922 entries --> Time filtered tweets
-```
+write_as_csv(timeline, "timeline.csv") #10277 entries
+write_as_csv(timeline_db, "timeline_db.csv") #7922 entries
 
-In the next step a random sample of 200 tweets was created to crosscheck the relevance of the extracted tweets regarding climate change.
+#Create random samples for labeling
 
-```{r pressure, echo=FALSE}
 set.seed(14) #Set seed for randomization
 rows = sample(nrow(timeline_db)) #Randomly sample rows
 timeline_filtered = timeline_db[rows, ] %>% head(200)#Reshuffle dataframe and only select 200 records for labeling
 timeline_filtered = timeline_filtered %>% select(created_at, screen_name, followers_count, retweet_count, text) #Only keep relevant columns
 write_as_csv(timeline_filtered, "timeline_filtered.csv")
-```
 
-The csv file containing the 2 labels per tweet is read and subsequently the sentiment analysis of these tweets is executed using VADER.
-Based on these 200 tweets a lower and upper threshold value is selected to determine negative, positive and neutral tweets. Since only the positive and negative tweets will be considered in the analysis, the thresholds are selected to maximize the correctness of these 2 categories, while the neutral set is allowed to be less clean.
+#### Section: Sentiment with Word Libraries ####
+#THIS SECTION IS NOT USED AND DOES NOT WORK PROPERLY
 
-```{r pressure, echo=FALSE}
+df = read.csv("data.csv")
+
+#Add an id column
+df$id = seq.int(nrow(df))
+
+#Store text and create tible
+texts = df$text
+#Column id and text
+textdf = tibble(id = df$id, text = texts)
+
+#Unnest all texts to a new df with columns word and id
+textdf %>% unnest_tokens(word, text) -> wordsdf
+
+#Import Stop words and remove from wordsdf
+data(stop_words)
+wordsdf = wordsdf %>% anti_join(stop_words)
+
+#Find sentiment for each word and summarize by id, taking the average using afinn
+wordsdf %>% inner_join(get_sentiments("afinn")) %>% group_by(id) %>%
+  summarize(sent = mean(value), n=n()) -> afinndf
+
+afinndf %>% head(20)
+
+wordsdf %>% inner_join(get_sentiments("nrc")) -> nrcdf
+
+#Only filter out desired emotions (e.g trust/joy/anticipation)
+nrcdf %>% filter(sentiment %in% c("anger", "negative", "positive", "sadness", "disgust")) -> nrcdf2
+
+#Replace negative emotions with negative
+nrcdf2$sentiment[nrcdf2$sentiment == "anger"] = "negative"
+nrcdf2$sentiment[nrcdf2$sentiment == "disgust"] = "negative"
+nrcdf2$sentiment[nrcdf2$sentiment == "sadness"] = "negative"
+
+#Summarize (DOES NOT YET WORK)
+nrcdf3 = nrcdf2 %>% group_by(id) %>% summarize(sent = mlv(sentiment, method = 'mfv')[['M']])
+
+
+#### Section: Cleanliness ####
+
+#Read in hand-labeled file
+df = read.csv("timeline_filtered_anno.csv",
+              header=TRUE, stringsAsFactors=FALSE)
+
+#Split into the two groups
+df1 = df %>% head(100)
+df2 = df %>% tail(100)
+
+#Replace sentiments of non-relevant tweets with NA
+select = df1$Rel1 == 0
+df1$Sentiment1[select] = NA
+select = df1$Rel2 == 0
+df1$Sentiment2[select] = NA
+
+#For all 4 labelers get a distribution of what they labeled (Positive, Negative, Neutral, Non-relevant)
+sent1_1 = df1 %>% group_by(Sentiment1) %>% summarise(number = n())
+sent1_2 = df1 %>% group_by(Sentiment2) %>% summarise(number = n())
+sent2_1 = df2 %>% group_by(Sentiment1) %>% summarise(number = n())
+sent2_2 = df2 %>% group_by(Sentiment2) %>% summarise(number = n())
+
+#Calculate percentage of relevant, positive, negative and neutral tweets
+eval = data.frame(sent1_1$number, sent1_2$number, sent2_1$number, sent2_2$number)
+non_relevant = eval[4,] / nrow(df1)
+relevant = 1 -(eval[4,] /(nrow(df1)))
+
+#If set to 'all', calculates positive, negative and neutral percentage wrt to all labeled tweets
+#Otherwise wrt to only the relevant tweets
+set_total = 'rel'
+
+if(set_total == 'all'){
+  negative = eval[1,] / (100)
+  neutral = eval[2,] / (100)
+  positive = eval[3,] / (100)
+} else {
+  negative = eval[1,] / (100 * relevant)
+  neutral = eval[2,] / (100 * relevant)
+  positive = eval[3,] / (100 * relevant)
+} 
+  
+#Combine results into single df
+analysis_labeling = rbind(relevant, negative, neutral, positive, non_relevant)
+analysis_labeling = as_tibble(t(analysis_labeling))
+colnames(analysis_labeling) = c("relevant", "negative", "neutral", "positive", "non_relevant")
+
+#Check agreement between regarding relevance of the tweets
+df1$agree = (df1$Rel1 == df1$Rel2)
+agreement_relevance1 = df1 %>% group_by(agree) %>% summarise(number = n())
+
+df2$agree = (df2$Rel1 == df2$Rel2)
+agreement_relevance2 = df2 %>% group_by(agree) %>% summarise(number = n())
+
+#Check agreement regarding sentiment and relevance
+df1[is.na(df1)] = -5 #Set all NA values to -5, such that the == operator does not evaluate to NA
+df2[is.na(df2)] = -5
+
+df1$agree = (df1$Sentiment1 == df1$Sentiment2)
+agreement_overall1 = df1 %>% group_by(agree) %>% summarise(number = n())
+
+df2$agree = (df2$Sentiment1 == df2$Sentiment2)
+agreement_overall2 = df2 %>% group_by(agree) %>% summarise(number = n())
+
+#### Section: Sentiment Classification Trial Set ####
+
 #Read in the annotated csv file for classification
 df = read.csv("timeline_filtered_anno.csv",
               header=TRUE, stringsAsFactors=FALSE)
@@ -82,6 +163,10 @@ df$neg = vaderdf$neg
 df$neu = vaderdf$neu
 
 write_as_csv(df, 'timeline_filtered_classified_test.csv')
+
+#Analyze the tweets with syuzhet
+syudf = get_sentiment(df$text)
+df$syuzhet = syudf
 
 #Set threshold
 positive_threshold = 0.8
@@ -111,11 +196,9 @@ print(conf1)
 print(conf2)
 
 write_as_csv(df, 'timeline_filtered_classified.csv')
-```
 
-In a subsequent step the sentiment analysis with the above defined thresholds was performed on the entire dataset. Additionally, some data processing is included to remove duplicate tweets (accounts posting the same text multiple times) and to exclude tweets related to Holidays and Birthdays using certain keywords.
+#### Section: Sentiment Classification Full Set ####
 
-```{r pressure, echo=FALSE}
 #Import all tweets extracted and at least 1 week old at the time
 df = read.csv("timeline_db.csv")
 
@@ -151,20 +234,52 @@ df$threshold[df$vader <= negative_threshold] = -1
 #Numbers of tweets classified as positive (937), neutral (5867) and negative(1118)
 df %>% group_by(threshold) %>% summarise(count = n())
 
-#Save the dataframe
+#Select 100 most positive and most negative tweets
+df_positive = df %>% arrange(desc(vader)) %>% head(100)
+df_negative = df %>% arrange(vader) %>% head(100)
+
+#Select only relevant columns for the dataframes that require labeling
+df_positive = df_positive %>% select(screen_name, followers_count, retweet_count, favorite_count, text, vader, threshold)
+df_negative = df_negative %>% select(screen_name, followers_count, retweet_count, favorite_count, text, vader, threshold)
+
+#Import classified dataframe
+df_pos = read.csv('timeline_db_positive_labeled.csv')
+df_neg = read.csv('timeline_db_negative_labeled.csv')
+
+#Select only new columns and merger columns
+df_pos = df_pos %>% select(text, Rel1, Sentiment1, Rel2, Sentiment2)
+df_neg = df_neg %>% select(text, Rel1, Sentiment1, Rel2, Sentiment2)
+
+#Merge with newly classified
+df_positive = merge(x = df_positive, y = df_pos, by = 'text', all.x = TRUE)
+df_negative = merge(x = df_negative, y = df_neg, by = 'text', all.x = TRUE)
+
+#Save all the dataframes
 write_as_csv(df, 'timeline_db_classified.csv')
+write_as_csv(df_positive, 'timeline_db_positive.csv')
+write_as_csv(df_negative, 'timeline_db_negative.csv')
 
-```
 
-In the next step, the regression for the positive and negative tweets was performed and plotted.
+#### Section: Bootstrapping ####
 
-```{r pressure, echo=FALSE}
-#Read in dataframe one wants to test
+#Create dataframe one wants to test (both positive and negative data together! Threshold column will be selected!)
 df = read.csv('timeline_db_classified.csv')
+
+#Create dataframe from labeled data
+#dfpos = read.csv('timeline_db_positive_labeled2.csv')
+#dfneg = read.csv('timeline_db_negative_labeled2.csv')
+#Assign labels of first person (can be changed later)
+#dfpos$threshold = dfpos$Sentiment1
+#dfneg$threshold = dfneg$Sentiment1
+#df = rbind(dfpos, dfneg)
 
 #Select positive and negative tweets in separate dataframe
 df_positive = df %>% filter(df$threshold == 1)
 df_negative = df %>% filter(df$threshold == -1)
+
+#Select only tweets with responses greater than 1
+#df_positive = df_positive %>% filter(df_positive$retweet_count >= 1)
+#df_negative = df_negative %>% filter(df_negative$retweet_count >= 1)
 
 #Select only retweet count and follower count
 df_positive = df_positive %>% select(retweet_count, followers_count)
@@ -184,7 +299,6 @@ df_negative$retweet_log[df_negative$retweet_log == -Inf] = 0
 posreg = lm(df_positive$retweet_log ~ df_positive$follower_log)
 negreg = lm(df_negative$retweet_log ~ df_negative$follower_log)
 
-#Calculate difference in slopes between positive and negative regression models
 slope_diff_observed = negreg$coefficients[2] - posreg$coefficients[2]
 
 #Plot results
@@ -193,16 +307,9 @@ points(x = df_negative$follower_log, y = df_negative$retweet_log, pch = 18, col 
 legend("topleft", inset = .05, c('Positive', 'Negative'), fill = c(rgb(0,0,1), rgb(1,0,0)), horiz = TRUE)
 abline(posreg$coefficients[1], posreg$coefficients[2], col = rgb(0,0,1), lwd = 2)
 abline(negreg$coefficients[1], negreg$coefficients[2], col = rgb(1,0,0), lwd = 2)
-```
 
-
-To evaluate whether a different distribution of the analyzed data will lead to the same slope, bootstrapping (with replacement) was performed 10000 times on the entire dataset. A regression model was fitted for every sample and the slope and intercept coefficient stored. For visualization, a histogram was generated showing the distribution of positive and negative slopes for all 10000 fitted models. Additionally, the regression lines were also added to the previously generated scatter plot to further display the respective distribution.
-
-```{r pressure, echo=FALSE}
-#Set number of repetitions for bootstrapping
+#Bootstrapping for positive model
 M = 10000
-
-#Create empty variables to store data
 bootSlopes_pos = numeric(M)
 bootIntercepts_pos = numeric(M)
 for(i in 1:M)
@@ -227,9 +334,9 @@ for(i in 1:M)
 #Create common histogram to see distributions
 hgpos = hist(bootSlopes_pos, breaks = 10)
 hgneg = hist(bootSlopes_neg, breaks = 15)
-range_x = range(c(hgpos$breaks - 0.1, hgneg$breaks + 0.1))
+range_x = range(c(hgpos$breaks, hgneg$breaks))
 range_y = c(0, max(c(hgpos$count, hgneg$count)) + 250)
-plot(hgpos, col = rgb(0,0, 1, 0.2), xlim = range_x, ylim = range_y, xlab = 'Slope coefficient', main = 'Histogram of slope coefficients')
+plot(hgpos, col = rgb(0,0, 1, 0.2), xlim = range_x, ylim = range_y, xlab = 'Slope coefficient', main = '')
 plot(hgneg, add = TRUE, col = rgb(1,0,0, 0.2))
 abline(v = posreg$coefficients[2], col = rgb(0,0,1), lwd = 3)
 abline(v = negreg$coefficients[2], col = rgb(1,0,0), lwd = 3)
@@ -245,11 +352,68 @@ for(i in 1:1000)
 }
 abline(posreg$coefficients[1], posreg$coefficients[2], col = rgb(0,0,1), lwd = 3)
 abline(negreg$coefficients[1], negreg$coefficients[2], col = rgb(1,0,0), lwd = 3)
-```
 
-After the bootstrapping a permutation test was performed to exclude that the observation was made by pure coincidence. For that purpose the data was shuffled and the difference of the slopes of positive and negative tweets examined:
+#### Section: Further Analysis ####
 
-```{r pressure, echo=FALSE}
+#Reread the dataset
+df = read.csv('timeline_db_classified.csv')
+
+#Filter out all useful (i.e positive or negative) responses
+df_good = df %>% filter(df$threshold == 1 | df$threshold == -1)
+
+#Select users with most useful responses
+best_users = df_good %>% group_by(screen_name) %>% summarise(count = n()) %>% arrange(desc(count))
+#Select most popular users
+popular_users = distinct(df_good %>% arrange(desc(followers_count)) %>% select(screen_name))
+
+#User Analysis (take users with most useful tweets) or enter 1 you are interested in
+username = best_users$screen_name[1]
+username = popular_users$screen_name[1]
+#Filter out user and relevant columns
+usertweets = df_good %>% filter(screen_name == username) %>% select(retweet_count, followers_count, screen_name, threshold)
+#Create positive frame for user
+usertweets_pos = usertweets %>% filter(threshold == 1)
+#Take log of retweet count and its mean
+usertweets_pos$retweet_count = log(usertweets_pos$retweet_count)
+usertweets_pos$retweet_count[usertweets_pos$retweet_count == -Inf | usertweets_pos$retweet_count == -1] = 0
+mean_pos = mean(usertweets_pos$retweet_count)
+#Set plot height
+#Repeat for negative frame of user
+usertweets_pos$const = 0.75
+usertweets_neg = usertweets %>% filter(threshold == -1)
+usertweets_neg$const = 0.25
+usertweets_neg$retweet_count = log(usertweets_neg$retweet_count)
+usertweets_neg$retweet_count[usertweets_neg$retweet_count == -Inf | usertweets_neg == -1] = 0
+mean_neg = mean(usertweets_neg$retweet_count)
+
+#Plot results
+plot(usertweets_pos$retweet_count, usertweets_pos$const, xlab = 'Log of Retweets', ylab = '', pch = 20, ylim = c(0,1), xlim = c(0,10), col = rgb(0,0,1), yaxt = "n", main = username)
+points(usertweets_neg$retweet_count, usertweets_neg$const, pch = 18, col = rgb(1,0,0))
+legend("topleft", inset = .05, c('Positive', 'Negative'), fill = c(rgb(0,0,1), rgb(1,0,0)), horiz = TRUE)
+abline(v = mean_pos, col = rgb(0,0,1), ylim = c(0.25, 0.75))
+abline(v = mean_neg, col = rgb(1,0,0), ylim = c(0.25,0.75))
+
+#Additional Plots
+
+#Set all retweets to at least 1
+df_good = df %>% filter(df$threshold == 1 | df$threshold == -1)
+df_good$retweet_count[df_good$retweet_count == 0] = 1
+df_good$retweet_count_log = log(df_good$retweet_count)
+df_good$follower_log = log(df_good$followers_count)
+df_pos = df_good %>% filter(threshold == 1)
+df_neg = df_good %>% filter(threshold == -1)
+
+#Create a violin plot
+vioplot(df_pos$retweet_count_log, df_neg$retweet_count_log, names = c("Positive", "Negative"), col = "gold")
+title("Violin Plot of Log of Retweet Count")
+
+#Create a boxplot
+boxplot(retweet_count_log~threshold, data = df_good, main = "Retweet Count Box Plot", xlab = "Sentiment", ylab = "Log of Retweet Count")
+boxplot(follower_log~threshold, data = df_good, main = "Follower Count Box Plot", xlab = "Sentiment", ylab = "Log of follower Count")
+#boxplot(retweet_count~threshold, data = df_good, main = "Retweet Count Box Plot", xlab = "Sentiment", ylab = "Retweet Count")
+
+#### Section: Permutation Test ####
+
 #Set number of permutations
 M = 10000
 slope_diff = numeric(length = M)
@@ -272,7 +436,7 @@ for (i in 1:M)
   df_positive = df %>% filter(df$threshold == 1)
   df_negative = df %>% filter(df$threshold == -1)
   
-  #Select only retweet count and follower count (both log scale)
+  #Select only retweet count and follower count
   df_positive = df_positive %>% select(retweet_count, followers_count)
   df_negative = df_negative %>% select(retweet_count, followers_count)
   
@@ -280,84 +444,16 @@ for (i in 1:M)
   df_positive$retweet_count[df_positive$retweet_count  == -Inf] = 0
   df_negative$retweet_count[df_negative$retweet_count == -Inf] = 0
   
-  #Fit regression models
+  #Fit regression model
   posreg = lm(df_positive$retweet_count ~ df_positive$followers_count)
   negreg = lm(df_negative$retweet_count ~ df_negative$followers_count)
   
-  #Calculate slope difference between the two regression models
   slope_diff[i] = negreg$coefficients[2] - posreg$coefficients[2]
 }
-
-#Plot histogram of slope difference from permuation test
-hist(slope_diff, xlim = range(c(slope_diff - 0.1, slope_diff_observed + 0.1)), main = "Histogram of Slope Difference", xlab = "Slope Difference")
-#Plot slope difference of acutual fitted model
-abline(v = slope_diff_observed, col = 'red')
+hist(slope_diff, xlim = range(c(slope_diff - 0.1, slope_diff_observed + 0.1)), main = "", xlab = "Slope Difference")
+abline(v = slope_diff_observed, col = 'red', lwd = 2)
 
 #Calculate one-sided p-value for our observation
 pvalue = (sum(slope_diff >= slope_diff_observed)+1) / length(slope_diff)
 options(scipen = 999)#disable scientific notation
 pvalue
-
-```
-
-To generate a better understanding and provide further information several additional plots were generated based on the data displayed above:
-
-```{r pressure, echo=FALSE}
-
-#Reread data and prepare it 
-df = read.csv('timeline_db_classified.csv')
-
-#Filter out all useful (i.e positive or negative) responses
-df_good = df %>% filter(df$threshold == 1 | df$threshold == -1)
-
-#Select users with most useful responses
-best_users = df_good %>% group_by(screen_name) %>% summarise(count = n()) %>% arrange(desc(count))
-#Select most popular users
-popular_users = distinct(df_good %>% arrange(desc(followers_count)) %>% select(screen_name))
-
-#User Analysis (take users with most useful/most popular tweets) or enter 1 you are interested in
-username = best_users$screen_name[1]
-username = popular_users$screen_name[2]
-#Filter out tweets of desired user and other relevant columns
-usertweets = df_good %>% filter(screen_name == username) %>% select(retweet_count, followers_count, screen_name, threshold)
-#Create positive frame for user
-usertweets_pos = usertweets %>% filter(threshold == 1)
-#Take log of retweets count and its mean
-usertweets_pos$retweet_count = log(usertweets_pos$retweet_count)
-usertweets_pos$retweet_count[usertweets_pos$retweet_count == -Inf | usertweets_pos$retweet_count == -1] = 0
-mean_pos = mean(usertweets_pos$retweet_count)
-
-#Repeat for negative frame of user
-usertweets_neg = usertweets %>% filter(threshold == -1)
-usertweets_neg$retweet_count = log(usertweets_neg$retweet_count)
-usertweets_neg$retweet_count[usertweets_neg$retweet_count == -Inf | usertweets_neg$retweet_count == -1] = 0
-mean_neg = mean(usertweets_neg$retweet_count)
-
-#Set plot height
-usertweets_neg$const = 0.25
-usertweets_pos$const = 0.75
-
-#Plot results
-plot(usertweets_pos$retweet_count, usertweets_pos$const, xlab = 'Log of Retweets', ylab = '', pch = 20, ylim = c(0,1), xlim = c(0,10), col = rgb(0,0,1), yaxt = "n", main = username)
-points(usertweets_neg$retweet_count, usertweets_neg$const, pch = 18, col = rgb(1,0,0))
-legend("topleft", inset = .05, c('Positive', 'Negative'), fill = c(rgb(0,0,1), rgb(1,0,0)), horiz = TRUE)
-abline(v = mean_pos, col = rgb(0,0,1), ylim = c(0.25, 0.75))
-abline(v = mean_neg, col = rgb(1,0,0), ylim = c(0.25,0.75))
-
-#Additional Plots
-
-#Set all retweets to at least 1
-df_good = df %>% filter(df$threshold == 1 | df$threshold == -1)
-df_good$retweet_count[df_good$retweet_count == 0] = 1
-df_good$retweet_count_log = log(df_good$retweet_count)
-df_pos = df_good %>% filter(threshold == 1)
-df_neg = df_good %>% filter(threshold == -1)
-
-#Create a violin plot
-vioplot(df_pos$retweet_count_log, df_neg$retweet_count_log, names = c("Positive", "Negative"), col = "gold")
-title("Violin Plot of Log of Retweet Count")
-
-#Create a boxplot
-boxplot(retweet_count_log~threshold, data = df_good, main = "Retweet Count Box Plot", xlab = "Sentiment", ylab = "Log of Retweet Count")
-#boxplot(retweet_count~threshold, data = df_good, main = "Retweet Count Box Plot", xlab = "Sentiment", ylab = "Retweet Count")
-```
