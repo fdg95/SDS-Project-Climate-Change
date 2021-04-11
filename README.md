@@ -24,7 +24,7 @@ Afterwards, sentiment analysis using VADER was performed on the entire dataset a
 
 The final report describes the project, the data retrieval and processing as well as our findings more in detail. The accompanying R-Markdown shows all the essential code to recreate the findings from the report, while the more extensive R-code file contains some additional stuff that was not used in the final report. 
 
-- **Playaround.R**        Extensive R-Code
+- **SDS_FullCode.R**        Extensive R-Code
 - **Markdown.Rmd**  Markdown file containing all code to recreate the findings described in the report (less detailed than R-Code)
 - **Project Description.pdf** Project Description
 - **ADD REPORT!!!**
