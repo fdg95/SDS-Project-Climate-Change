@@ -52,8 +52,9 @@ timeline_db = timeline %>% filter(timeline$created_at < "2021-03-02 00:00:00 UTC
 timeline$created_at %>% head(5) #Check the dates
 timeline_db$created_at %>% head(5) #Check dates after filtering out last week
 
-write_as_csv(timeline, "timeline.csv") #10277 entries --> All tweets
-write_as_csv(timeline_db, "timeline_db.csv") #7922 entries --> Time filtered tweets
+#UNCOMMENT IN CASE YOU WANT TO PROCEED WITH CURRENT DATA -> ALSO ADAPT FILTERING DATE ABOVE
+#write_as_csv(timeline, "timeline.csv") #10277 entries --> All tweets
+#write_as_csv(timeline_db, "timeline_db.csv") #7922 entries --> Time filtered tweets
 ```
 
 In the next step a random sample of 200 tweets was created to crosscheck the relevance of the extracted tweets regarding climate change.
@@ -129,6 +130,7 @@ df = df %>% filter(!str_detect(screen_name, "ClimateDesk"))
 duplicates = df[duplicated(df$text),]
 df = df %>% distinct(text, .keep_all = TRUE)
 
+#UNCOMMENT IN CASE OF LENGHT MISMATCH
 #Classify tweets according to vader and add precise score to df
 #dfvader = vader_df(df$text)
 #Store vader classification (takes ~20 min to run)
