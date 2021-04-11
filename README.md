@@ -27,7 +27,7 @@ The final report describes the project, the data retrieval and processing as wel
 - **SDS_FullCode.R**        Extensive R-Code
 - **Markdown.Rmd**  Markdown file containing all code to recreate the findings described in the report (less detailed than R-Code)
 - **Project Description.pdf** Project Description
-- **Social data science_report.pdf** Final report of our project
+- **Social data science_final.pdf** Final report of our project
 
 Over the course of this project, some additional files were created that are not explicitly used in the report. However, these files still proofed useful, as they aided in finding certain keywords that were used to fitler out non climate related tweets and to confirm, that more extreme VADER scores show in fact a higher agreement with the hand labels than the random subset.
 
